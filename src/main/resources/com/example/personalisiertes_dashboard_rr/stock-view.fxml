@@ -4,10 +4,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<?import javafx.scene.shape.Circle?>
-<VBox alignment="CENTER" minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.personalisiertes_dashboard_rr.StockController">
+<VBox alignment="CENTER" minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.personalisiertes_dashboard_rr.StockController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -114,9 +114,9 @@
                                 <Image url="@../../../../../img/stock .png" />
                             </image>
                         </ImageView>
-                        <Label prefHeight="0.0" prefWidth="552.0" style="-fx-font-size: 20;" text="Label" GridPane.columnIndex="2" GridPane.columnSpan="6" GridPane.rowIndex="9" GridPane.valignment="TOP" />
+                        <Label prefHeight="0.0" prefWidth="552.0" style="-fx-font-size: 20;" text="Logitech is a Harwear Company" GridPane.columnIndex="2" GridPane.columnSpan="6" GridPane.rowIndex="9" GridPane.valignment="TOP" />
                         <TextField GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="80.0" text="Search" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                     </children>
 
 
