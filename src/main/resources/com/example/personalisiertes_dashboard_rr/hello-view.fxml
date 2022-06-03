@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.personalisiertes_dashboard_rr.HelloController">
+
+
+<padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+</padding>
+<children>
+    <BorderPane layoutX="18.0" layoutY="10.0" maxHeight="0.0" maxWidth="0.0" minHeight="800.0" minWidth="1265.0"
+                prefHeight="800.0" prefWidth="1265.0">
+        <left>
+            <Pane minHeight="590.0" minWidth="204.0" prefHeight="600.0" prefWidth="204.0"
+                  style="-fx-background-color: BCC3FF;" BorderPane.alignment="CENTER">
+                <children>
+                    <GridPane layoutY="-111.0" prefHeight="788.0" prefWidth="200.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                            <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES"/>
+                            <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                            <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                            <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                            <RowConstraints maxHeight="143.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        </rowConstraints>
+                        <children>
+                            <Pane prefHeight="73.0" prefWidth="781.0"
+                                  style="-fx-border-color: #00DDF6; -fx-border-width: 2;" GridPane.columnSpan="3"
+                                  GridPane.rowIndex="3">
+                                <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="29.0"
+                                           text="Calender"/>
+                                </children>
+                            </Pane>
+                            <Pane prefHeight="200.0" prefWidth="200.0"
+                                  style="-fx-border-color: #00DDF6; -fx-border-width: 2;" GridPane.columnSpan="3"
+                                  GridPane.rowIndex="4">
+                                <children>
+                                    <Label layoutX="72.0" layoutY="28.0" text="Get A Joke"/>
+                                </children>
+                            </Pane>
+                            <Pane prefHeight="200.0" prefWidth="200.0"
+                                  style="-fx-border-color: #00DDF6; -fx-border-width: 2;" GridPane.columnSpan="3"
+                                  GridPane.rowIndex="5">
+                                <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="81.0" layoutY="31.0"
+                                           text="Stock"/>
+                                </children>
+                            </Pane>
+                        </children>
+                    </GridPane>
+                </children>
+            </Pane>
+        </left>
+        <top>
+            <Pane prefHeight="120.0" prefWidth="1265.0" style="-fx-background-color: BCC3FF;"
+                  BorderPane.alignment="CENTER">
+                <children>
+                    <Label layoutX="465.0" layoutY="9.0" style="-fx-font-family: Comic Sans MS; -fx-font-size: 70;"
+                           text="CALENDER "/>
+                </children>
+            </Pane>
+        </top>
+        <center>
+            <GridPane BorderPane.alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <children>
+                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 5; -fx-border-color: #707070;"
+                          GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="1">
+                        <children>
+                            <GridPane prefHeight="60.0" prefWidth="818.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints maxHeight="21.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES"/>
+                                    <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES"/>
+                                    <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="14.0" vgrow="SOMETIMES"/>
+                                </rowConstraints>
+                            </GridPane>
+                        </children>
+                    </Pane>
+                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 5; -fx-border-color: #707070;"
+                          GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="2" GridPane.rowSpan="4">
+                        <children>
+                            <GridPane layoutX="2.0" layoutY="2.0" prefHeight="432.0" prefWidth="822.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                </rowConstraints>
+                                <children>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="Button"
+                                            GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="1" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.rowIndex="1" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="6" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="5" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="4" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="3" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="2" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.rowIndex="2" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="6" GridPane.rowIndex="1" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.rowIndex="3" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="6" GridPane.rowIndex="2" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="5" GridPane.rowIndex="2" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="4" GridPane.rowIndex="2" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="6" GridPane.rowIndex="3" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="5" GridPane.rowIndex="3" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="4" GridPane.rowIndex="3" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="TOP"/>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button"
+                                            GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.valignment="TOP"/>
+                                    <Pane prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;"/>
+                                    <Pane prefHeight="200.0" prefWidth="200.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="1"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="1"
+                                          GridPane.rowIndex="2"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="1"
+                                          GridPane.rowIndex="1"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.rowIndex="3"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.rowIndex="2"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.rowIndex="1"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="2"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="2"
+                                          GridPane.rowIndex="1"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="2"
+                                          GridPane.rowIndex="2"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="2"
+                                          GridPane.rowIndex="3"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="1"
+                                          GridPane.rowIndex="3"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="4"
+                                          GridPane.rowIndex="3"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="4"
+                                          GridPane.rowIndex="2"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="4"
+                                          GridPane.rowIndex="1"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="4"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="3"
+                                          GridPane.rowIndex="3"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="3"
+                                          GridPane.rowIndex="2"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="3"
+                                          GridPane.rowIndex="1"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="3"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="6"
+                                          GridPane.rowIndex="2"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="5"
+                                          GridPane.rowIndex="2"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="6"
+                                          GridPane.rowIndex="1"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="5"
+                                          GridPane.rowIndex="1"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="6"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="5"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="6"
+                                          GridPane.rowIndex="3"/>
+                                    <Pane layoutX="10.0" layoutY="10.0" prefHeight="108.0" prefWidth="125.0"
+                                          style="-fx-border-color: black; -fx-border-width: 2;" GridPane.columnIndex="5"
+                                          GridPane.rowIndex="3"/>
+
+                                </children>
+                            </GridPane>
+                        </children>
+                    </Pane>
+                </children>
+            </GridPane>
+        </center>
+    </BorderPane>
+</children>
+</VBox>
