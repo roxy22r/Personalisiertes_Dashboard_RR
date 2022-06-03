@@ -3,7 +3,7 @@ package com.example.personalisiertes_dashboard_rr;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class CalenderController {
     @FXML
     private Label welcomeText;
 

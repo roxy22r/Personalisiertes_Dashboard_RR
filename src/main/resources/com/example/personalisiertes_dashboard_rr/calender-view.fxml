@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.personalisiertes_dashboard_rr.HelloController">
+      fx:controller="com.example.personalisiertes_dashboard_rr.CalenderController">
 
 
 <padding>

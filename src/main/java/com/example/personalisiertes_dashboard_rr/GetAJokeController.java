@@ -1,4 +1,4 @@
 package com.example.personalisiertes_dashboard_rr;
 
-public class getAJokeController {
+public class GetAJokeController {
 }
