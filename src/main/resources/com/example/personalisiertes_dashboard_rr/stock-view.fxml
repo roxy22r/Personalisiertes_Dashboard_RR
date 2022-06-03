@@ -6,66 +6,83 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import javafx.scene.shape.Circle?>
 <VBox alignment="CENTER" minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.personalisiertes_dashboard_rr.StockController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
         <BorderPane layoutX="18.0" layoutY="10.0" maxHeight="0.0" maxWidth="0.0" minHeight="800.0" minWidth="1265.0" prefHeight="800.0" prefWidth="1265.0">
-            <left>
-                <Pane minHeight="590.0" minWidth="204.0" prefHeight="600.0" prefWidth="204.0" style="-fx-background-color: BCC3FF;" BorderPane.alignment="CENTER">
-                    <children>
-                        <GridPane layoutY="-111.0" prefHeight="788.0" prefWidth="200.0">
-                            <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            </columnConstraints>
-                            <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="143.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
-                            <children>
-                                <Pane prefHeight="73.0" prefWidth="781.0" style="-fx-border-color: #00DDF6; -fx-border-width: 2;" GridPane.columnSpan="3" GridPane.rowIndex="3">
-                                    <children>
-                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="29.0" text="Calender" />
-                                    </children>
-                                </Pane>
-                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #00DDF6; -fx-border-width: 2;" GridPane.columnSpan="3" GridPane.rowIndex="4">
-                                    <children>
-                                        <Label layoutX="72.0" layoutY="28.0" text="Get A Joke" />
-                                    </children>
-                                </Pane>
-                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #00DDF6; -fx-border-width: 2;" GridPane.columnSpan="3" GridPane.rowIndex="5">
-                                    <children>
-                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="81.0" layoutY="31.0" text="Stock" />
-                                    </children>
-                                </Pane>
-                                <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowSpan="3" />
-                            </children>
-                        </GridPane>
-                    </children>
-                </Pane>
-            </left>
+
             <top>
-                <Pane prefHeight="120.0" prefWidth="1265.0" style="-fx-background-color: BCC3FF;" BorderPane.alignment="CENTER">
+                <Pane prefHeight="114.0" prefWidth="1214.0" style="-fx-background-color: BCC3FF;" BorderPane.alignment="CENTER">
                     <children>
-                        <Label layoutX="562.0" layoutY="9.0" text="STOCK" textFill="WHITE">
+                        <Label layoutX="488.0" layoutY="9.0" text="GET A JOKE " textFill="WHITE">
                             <font>
-                                <Font name="Comic Sans MS" size="70.0" />
+                                <Font name="Comic Sans MS" size="72.0" />
                             </font></Label>
+                        <VBox layoutX="-24.0" layoutY="3.0" />
+                        <Pane layoutX="-10.0" layoutY="6.0" minHeight="162.0" minWidth="209.0" prefHeight="794.0" prefWidth="236.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #707070; -fx-border-width: 4;">
+                            <children>
+                                <GridPane layoutX="4.0" prefHeight="808.0" prefWidth="229.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="143.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+
+                                        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="235.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Calender" textFill="WHITE" GridPane.columnSpan="3" GridPane.rowIndex="3">
+                                            <font>
+                                                <Font name="Comic Sans MS" size="13.0" />
+                                            </font>
+                                        </Button>
+                                        <Button layoutX="10.0" layoutY="245.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="235.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Get A Joke" textFill="WHITE" GridPane.columnSpan="3" GridPane.rowIndex="4">
+                                            <font>
+                                                <Font name="Comic Sans MS" size="13.0" />
+                                            </font>
+                                        </Button>
+                                        <Button layoutX="10.0" layoutY="42.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="235.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Stock" textFill="WHITE" GridPane.columnSpan="3" GridPane.rowIndex="5">
+                                            <font>
+                                                <Font name="Comic Sans MS" size="13.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </GridPane>
+                            </children></Pane>
+                        <Pane layoutX="-8.0" layoutY="-18.0" minHeight="162.0" minWidth="209.0" prefHeight="204.0" prefWidth="231.0" style="-fx-background-color: #BCC3FF;">
+                            <children>
+                                <Circle fill="WHITE" layoutX="124.0" layoutY="95.0" radius="68.0" stroke="BLACK" strokeType="INSIDE" />
+                                <ImageView fitHeight="78.0" fitWidth="95.0" layoutX="85.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../img/person-icon.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="70.0" layoutY="165.0" prefHeight="17.0" prefWidth="108.0" text="Emma Watson">
+                                    <font>
+                                        <Font name="SansSerif Regular" size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane layoutX="216.0" layoutY="3.0" minHeight="109.0" minWidth="32.0" prefHeight="109.0" prefWidth="32.0" style="-fx-background-color: #BCC3FF;" />
                     </children>
                 </Pane>
             </top>
+
             <center>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
