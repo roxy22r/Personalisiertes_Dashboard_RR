@@ -134,7 +134,9 @@
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.columnIndex="2" GridPane.valignment="TOP" />
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="337.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.columnIndex="5" GridPane.valignment="TOP" />
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="337.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.columnIndex="4" GridPane.valignment="TOP" />
-                    <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="555.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" GridPane.columnIndex="6" GridPane.valignment="TOP" />
+                    <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="555.0" layoutY="10.0"
+                            mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.columnIndex="6"
+                            GridPane.valignment="TOP"/>
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.rowIndex="1" GridPane.valignment="TOP" />
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
