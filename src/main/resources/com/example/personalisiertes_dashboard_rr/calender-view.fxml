@@ -16,10 +16,13 @@
          <children>
 
 
-                      <Label contentDisplay="CENTER" layoutX="66.0" layoutY="-6.0" prefHeight="116.0" prefWidth="1058.0" text="Calender" textFill="WHITE">
+                      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-157.0" layoutY="-4.0" prefHeight="116.0" prefWidth="1280.0" text="Calender" textAlignment="CENTER" textFill="WHITE">
                           <font>
                               <Font name="Comic Sans MS" size="72.0" />
                           </font>
+               <padding>
+                  <Insets right="100.0" />
+               </padding>
                   </Label>
          </children>
       </Pane>
@@ -94,24 +97,24 @@
             </Pane>
          </children>
       </Pane>
-          <Pane layoutX="335.0" layoutY="190.0" minHeight="77.0" minWidth="668.0" prefHeight="77.0" prefWidth="697.0" style="-fx-background-color: white; -fx-border-color: #707070; -fx-border-width: 5; -fx-border-radius: 6;" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="250.0">
-              <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="3.0" layoutY="-1.0" prefHeight="72.0" prefWidth="665.0" text="Monat" textAlignment="RIGHT" wrapText="true">
+          <Pane layoutX="295.0" layoutY="190.0" minHeight="77.0" minWidth="668.0" prefHeight="77.0" prefWidth="723.0" style="-fx-background-color: white; -fx-border-color: #707070; -fx-border-width: 5; -fx-border-radius: 6;" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="190.0">
+         <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="547.0" layoutY="1.0" prefHeight="72.0" prefWidth="136.0" text="Monat" textAlignment="RIGHT" wrapText="true">
                       <font>
                           <Font name="SansSerif Regular" size="36.0" />
                       </font>
                   </Label>
-              </children>
+         </children>
       </Pane>
-            <GridPane gridLinesVisible="true" layoutX="337.0" layoutY="280.0" minHeight="417.0" minWidth="671.0" mouseTransparent="true" prefHeight="421.0" prefWidth="671.0" style="-fx-border-radius: 3;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <GridPane gridLinesVisible="true" layoutX="297.0" layoutY="293.0" minHeight="405.0" minWidth="651.0" mouseTransparent="true" prefHeight="437.0" prefWidth="716.0" style="-fx-border-radius: 3;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="267.0" AnchorPane.topAnchor="293.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                 <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="102.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="92.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="92.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
                 </columnConstraints>
                 <rowConstraints>
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -127,7 +130,7 @@
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.columnIndex="2" GridPane.valignment="TOP" />
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="337.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.columnIndex="5" GridPane.valignment="TOP" />
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="337.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.columnIndex="4" GridPane.valignment="TOP" />
-                    <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="555.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" GridPane.columnIndex="6" GridPane.valignment="TOP" />
+                    <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="555.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" GridPane.columnIndex="6" GridPane.valignment="TOP" />
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.rowIndex="1" GridPane.valignment="TOP" />
                     <Button alignment="TOP_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="435.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />

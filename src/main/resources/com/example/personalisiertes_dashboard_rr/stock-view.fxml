@@ -18,7 +18,7 @@
         <children>
 
 
-            <Label contentDisplay="CENTER" layoutX="280.0" layoutY="14.0" prefHeight="116.0" prefWidth="520.0" text="Stock" textFill="WHITE">
+            <Label contentDisplay="CENTER" layoutX="280.0" layoutY="14.0" prefHeight="116.0" prefWidth="221.0" text="Stock" textFill="WHITE">
                 <font>
                     <Font name="Comic Sans MS" size="72.0" />
                 </font>
@@ -60,7 +60,7 @@
                             <Font name="Comic Sans MS" size="13.0" />
                         </font>
                     </Button>
-                    <Button layoutX="10.0" layoutY="42.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="221.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Stock" textFill="WHITE" GridPane.columnSpan="4" GridPane.rowIndex="6">
+                    <Button layoutX="10.0" layoutY="42.0" mnemonicParsing="false" onAction="#onClickGetCalenderView" prefHeight="73.0" prefWidth="221.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Stock" textFill="WHITE" GridPane.columnSpan="4" GridPane.rowIndex="6">
                         <font>
                             <Font name="Comic Sans MS" size="13.0" />
                         </font>
