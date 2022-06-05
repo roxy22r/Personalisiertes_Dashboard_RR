@@ -81,7 +81,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.personalisiertes_dashboard_rr/com.example.personalisiertes_dashboard_rr.CalenderApplication
+                                com.example.personalisiertes_dashboard_rr/com.example.personalisiertes_dashboard_rr.Application
                             </mainClass>
                         </configuration>
                     </execution>

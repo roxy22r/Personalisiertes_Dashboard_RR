@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" minHeight="800.0" minWidth="1280.0" prefHeight="800.0"
-            prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.2"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" minHeight="800.0" minWidth="1280.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
             fx:controller="com.example.personalisiertes_dashboard_rr.GetAJokeController">
 
 
@@ -22,7 +22,7 @@
                     <Font name="Comic Sans MS" size="72.0"/>
                 </font>
             </Label>
-      </children>
+        </children>
     </Pane>
 
     <Pane minHeight="162.0" minWidth="229.0" prefHeight="843.0" prefWidth="229.0" style="-fx-background-color: #BCC3FF; -fx-border-width: 4;" AnchorPane.bottomAnchor="-23.0" AnchorPane.topAnchor="-40.0">
