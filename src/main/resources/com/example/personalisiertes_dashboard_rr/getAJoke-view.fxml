@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" minHeight="800.0" minWidth="1280.0" prefHeight="800.0"
+            prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.2"
+            fx:controller="com.example.personalisiertes_dashboard_rr.GetAJokeController">
 
-<AnchorPane minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.personalisiertes_dashboard_rr.GetAJokeController">
+
+    <Pane layoutX="165.0" layoutY="-3.0" prefHeight="115.0" prefWidth="1116.0" style="-fx-background-color: #BCC3FF;"
+          AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="-1.0">
+        <children>
 
 
-    <Pane layoutX="165.0" layoutY="-3.0" prefHeight="115.0" prefWidth="1116.0" style="-fx-background-color: #BCC3FF;" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="-1.0">
-      <children>
-      
-      
-            <Label contentDisplay="CENTER" layoutX="280.0" layoutY="14.0" prefHeight="116.0" prefWidth="520.0" text="Get A Joke" textFill="WHITE">
+            <Label contentDisplay="CENTER" layoutX="280.0" layoutY="14.0" prefHeight="116.0" prefWidth="520.0"
+                   text="Get A Joke" textFill="WHITE">
                 <font>
-                    <Font name="Comic Sans MS" size="72.0" />
+                    <Font name="Comic Sans MS" size="72.0"/>
                 </font>
             </Label>
       </children>
@@ -80,9 +84,10 @@
         </children></Pane>
 
 
-
-                        <Button layoutX="458.0" layoutY="357.0" minHeight="100.0" minWidth="590.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="623.0" text="SHOW A JOKE" AnchorPane.bottomAnchor="343.0" AnchorPane.leftAnchor="458.0" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="357.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-
+    <Button layoutX="458.0" layoutY="357.0" minHeight="100.0" minWidth="590.0" mnemonicParsing="false"
+            onAction="#onClickShowAJoke" prefHeight="100.0" prefWidth="623.0" text="SHOW A JOKE"
+            AnchorPane.bottomAnchor="343.0" AnchorPane.leftAnchor="458.0" AnchorPane.rightAnchor="199.0"
+            AnchorPane.topAnchor="357.0" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
 
 
 
