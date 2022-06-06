@@ -31,7 +31,10 @@ public class CalenderController {
     private Parent root;
     @FXML
     private GridPane calenderGrid;
-    private Month month = Month.of(Calendar.MONTH);
+    String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    int mothSlideCount = 0;
+    @FXML
+    private Label month;
 
     private List<Appointment> appointments = new ArrayList<>(Arrays.asList(
             new Appointment("Project abgabe", LocalDateTime.of(2022, Month.JUNE, 5, 0, 0), LocalTime.of(12, 0), LocalTime.of(15, 0), " Abgabe von Abu Projekt"),
@@ -131,6 +134,7 @@ public class CalenderController {
         int monthCount = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         int day = 1;
         int month = 0;
+        this.month.setText(monthNames[calendar.get(Calendar.MONTH)]);
 
         for (int row = 0; row < calenderGrid.getRowCount(); row++) {
             for (int colum = 0; colum < calenderGrid.getColumnCount(); colum++) {
@@ -155,6 +159,27 @@ public class CalenderController {
             }
         }
 
+
+    }
+
+    @FXML
+    private void previousMonth() {
+        Calendar calendar = Calendar.getInstance();
+        int month = calendar.get(Calendar.MONTH) + mothSlideCount;
+        if (month != 0) {
+            mothSlideCount--;
+            this.month.setText(monthNames[month]);
+        }
+    }
+
+    @FXML
+    private void nextMonth() {
+        Calendar calendar = Calendar.getInstance();
+        int month = calendar.get(Calendar.MONTH) + mothSlideCount;
+        if (month != 11) {
+            mothSlideCount++;
+            this.month.setText(monthNames[month]);
+        }
 
     }
 
