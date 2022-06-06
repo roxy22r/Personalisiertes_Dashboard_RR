@@ -45,15 +45,15 @@
                         <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
                         <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES"/>
                         <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES"/>
-                                <RowConstraints maxHeight="133.0" minHeight="0.0" prefHeight="7.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="178.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="207.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="217.0" minHeight="10.0" prefHeight="217.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
+                        <RowConstraints maxHeight="133.0" minHeight="0.0" prefHeight="7.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="178.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="207.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="217.0" minHeight="10.0" prefHeight="217.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
                             <children>
 
                                 <Button minHeight="80.0" minWidth="176.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="223.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Calender" textFill="WHITE" GridPane.columnSpan="4" GridPane.rowIndex="4">
@@ -140,7 +140,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
         </GridPane>
-        <Button layoutX="283.0" layoutY="134.0" mnemonicParsing="false" onAction="#addAppointment" text="ADD"/>
+        <Button layoutX="297.0" layoutY="134.0" mnemonicParsing="false" onAction="#addAppointment" text="ADD"/>
+        <ComboBox fx:id="person" layoutX="372.0" layoutY="134.0" prefHeight="25.0" prefWidth="209.0"/>
 
     </children>
 

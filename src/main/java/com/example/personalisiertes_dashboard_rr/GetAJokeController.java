@@ -76,7 +76,7 @@ public class GetAJokeController {
 
     private String getRandomJoke() {
         Random random = new Random();
-        int index = random.nextInt(Jokes.size() - 1);
+        int index = random.nextInt(Jokes.size());
         return Jokes.get(index);
     }
 

@@ -31,6 +31,9 @@ public class CalenderController {
     private Parent root;
     @FXML
     private GridPane calenderGrid;
+
+    @FXML
+    private ComboBox peopleDirectory;
     String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     int mothSlideCount = 0;
     @FXML
@@ -129,13 +132,28 @@ public class CalenderController {
     }
 
     public void creatCalender() throws IOException {
+     /*
+        GridPane grid = new GridPane();
+        grid.setLayoutX(calenderGrid.getLayoutX());
+        grid.setLayoutY(calenderGrid.getLayoutY());
+        grid.setHgap(calenderGrid.getHgap());
+        grid.setVgap(calenderGrid.getVgap());
+        grid.setMinSize(calenderGrid.getMinWidth(),calenderGrid.getMinHeight());
+        grid.setPrefSize(calenderGrid.getPrefWidth(),calenderGrid.getPrefHeight());
+        grid.setStyle(calenderGrid.getStyle());
+        grid.setBorder(calenderGrid.getBorder());
+        grid.setOnKeyPressed(grid.getOnKeyPressed());
+        grid.idProperty().setValue(calenderGrid.getId());
+
+
+        calenderGrid.getChildren().clear();
+       */
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
         int monthCount = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         int day = 1;
         int month = 0;
         this.month.setText(monthNames[calendar.get(Calendar.MONTH)]);
-
         for (int row = 0; row < calenderGrid.getRowCount(); row++) {
             for (int colum = 0; colum < calenderGrid.getColumnCount(); colum++) {
 
@@ -158,9 +176,10 @@ public class CalenderController {
 
             }
         }
-
+        //root.getChildrenUnmodifiable().add(grid);
 
     }
+
 
     @FXML
     private void previousMonth() {
@@ -194,6 +213,5 @@ public class CalenderController {
             }
         }
     }
-
 
 }
