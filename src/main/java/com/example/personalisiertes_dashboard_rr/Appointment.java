@@ -1,0 +1,60 @@
+package com.example.personalisiertes_dashboard_rr;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class Appointment {
+    private static DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
+    private LocalDateTime date;
+    private LocalTime begin;
+    private LocalTime end;
+    private String note;
+
+    public Appointment(LocalDate date, String begin, String end, String note) {
+        this.date = date.atStartOfDay();
+        this.begin = LocalTime.parse(begin, TIME_FORMATTER);
+        this.end = LocalTime.parse(end, TIME_FORMATTER);
+
+    }
+
+    public Appointment(LocalDateTime date, LocalTime begin, LocalTime end, String note) {
+        this.date = date;
+        this.begin = begin;
+        this.end = end;
+
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public LocalTime getBegin() {
+        return begin;
+    }
+
+    public void setBegin(LocalTime begin) {
+        this.begin = begin;
+    }
+
+    public LocalTime getEnd() {
+        return end;
+    }
+
+    public void setEnd(LocalTime end) {
+        this.end = end;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+}
