@@ -31,14 +31,14 @@ public class CalenderController {
     private Parent root;
     @FXML
     private GridPane calenderGrid;
-    private Month month = Month.of(GregorianCalendar.MONTH);
+    private Month month = Month.of(Calendar.MONTH);
 
     private List<Appointment> appointments = new ArrayList<>(Arrays.asList(
-            new Appointment(LocalDateTime.of(2022, Month.JULY, 5, 0, 0), LocalTime.of(12, 0), LocalTime.of(15, 0), "IBM Termin"),
-            new Appointment(LocalDateTime.of(2022, Month.JULY, 10, 0, 0), LocalTime.of(7, 0), LocalTime.of(8, 0), "IBM Termin"),
-            new Appointment(LocalDateTime.of(2022, Month.JULY, 25, 0, 0), LocalTime.of(10, 0), LocalTime.of(14, 0), "IBM Termin"),
-            new Appointment(LocalDateTime.of(2022, Month.JULY, 20, 0, 0), LocalTime.of(17, 0), LocalTime.of(19, 0), "IBM Termin"),
-            new Appointment(LocalDateTime.of(2022, Month.JULY, 14, 0, 0), LocalTime.of(20, 0), LocalTime.of(22, 0), "IBM Termin")
+            new Appointment("Project abgabe", LocalDateTime.of(2022, Month.JUNE, 5, 0, 0), LocalTime.of(12, 0), LocalTime.of(15, 0), " Abgabe von Abu Projekt"),
+            new Appointment("Arduino Projekt", LocalDateTime.of(2022, Month.JUNE, 10, 0, 0), LocalTime.of(7, 0), LocalTime.of(8, 0), " Abgabe Aruino Projekt idee"),
+            new Appointment("Preasentation DonT Guess The Word 2ice", LocalDateTime.of(2022, Month.JUNE, 25, 0, 0), LocalTime.of(10, 0), LocalTime.of(14, 0), " Team arbeit preasentation"),
+            new Appointment("Team event", LocalDateTime.of(2022, Month.JUNE, 20, 0, 0), LocalTime.of(17, 0), LocalTime.of(19, 0), " Event"),
+            new Appointment("Abschlussfeier", LocalDateTime.of(2022, Month.JULY, 4, 0, 0), LocalTime.of(20, 0), LocalTime.of(22, 0), " Termin")
     ));
 
     @FXML
@@ -103,7 +103,7 @@ public class CalenderController {
         Optional<ButtonType> result = dialog.showAndWait();
         try {
             if (result.get() == create && !textArea.getText().isEmpty()) {
-                Appointment appointment = new Appointment(datePicker.getValue(), textBeginn.getText(), textEnd.getText(), textArea.getText());
+                Appointment appointment = new Appointment(textTitel.getText(), datePicker.getValue(), textBeginn.getText(), textEnd.getText(), textArea.getText());
                 appointments.add(appointment);
 
             } else if (textArea.getText().isEmpty()) {
@@ -126,9 +126,12 @@ public class CalenderController {
     }
 
     public void creatCalender() throws IOException {
-        Calendar calendar = new GregorianCalendar();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
         int monthCount = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         int day = 1;
+        int month = 0;
+
         for (int row = 0; row < calenderGrid.getRowCount(); row++) {
             for (int colum = 0; colum < calenderGrid.getColumnCount(); colum++) {
 
@@ -140,12 +143,13 @@ public class CalenderController {
                 label.setTextAlignment(TextAlignment.RIGHT);
                 label.setContentDisplay(ContentDisplay.TOP);
                 label.autosize();
-                loadAppointments(calenderGrid, colum, row, cell, day);
+                loadAppointments(calenderGrid, colum, row, cell, month, day);
                 calenderGrid.add(label, colum, row);
                 day++;
                 //  calenderGrid.getCellBounds(row,colum).
                 if (day == monthCount) {
                     day = 1;
+                    month++;
                 }
 
             }
@@ -154,13 +158,13 @@ public class CalenderController {
 
     }
 
-    private void loadAppointments(GridPane calenderGrid, int colum, int row, Bounds cell, int day) {
+    private void loadAppointments(GridPane calenderGrid, int colum, int row, Bounds cell, int month, int day) {
         for (Appointment appointment : appointments) {
-            if (appointment.getDate().getDayOfMonth() == day) {
+            if (appointment.getDate().getDayOfMonth() == day && appointment.getDate().getMonth() == LocalDateTime.now().getMonth().plus(month)) {
                 Button button = new Button();
                 button.setMinSize(cell.getWidth(), 10);
                 button.autosize();
-                button.setText("A Apoi");
+                button.setText(appointment.getTitel());
                 calenderGrid.add(button, colum, row);
             }
         }
