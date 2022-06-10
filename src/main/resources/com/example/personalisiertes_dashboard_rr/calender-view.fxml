@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" minHeight="800.0" minWidth="1280.0"
-            onKeyPressed="#creatCalender" xmlns="http://javafx.com/javafx/11.0.2"
+            onKeyPressed="#reloadCalenderSlide" xmlns="http://javafx.com/javafx/11.0.2"
             fx:controller="com.example.personalisiertes_dashboard_rr.CalenderController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
@@ -110,7 +110,7 @@
                         prefHeight="25.0" prefWidth="58.0" text="&lt;"/>
                 <Button layoutX="113.0" layoutY="26.0" mnemonicParsing="false" onAction="#nextMonth" prefHeight="25.0"
                         prefWidth="58.0" text="&gt;"/>
-                <Label fx:id="month" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="485.0" layoutY="6.0"
+                <Label fx:id="monthLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="485.0" layoutY="6.0"
                        prefHeight="72.0" prefWidth="192.0" text="Monat" textAlignment="RIGHT" wrapText="true">
                     <font>
                         <Font name="SansSerif Regular" size="36.0"/>
