@@ -1,5 +1,6 @@
 package com.example.personalisiertes_dashboard_rr;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 
@@ -131,31 +133,29 @@ public class CalenderController {
         stage.show();
     }
 
-    public void creatCalender() throws IOException {
-     /*
-        GridPane grid = new GridPane();
-        grid.setLayoutX(calenderGrid.getLayoutX());
-        grid.setLayoutY(calenderGrid.getLayoutY());
-        grid.setHgap(calenderGrid.getHgap());
-        grid.setVgap(calenderGrid.getVgap());
-        grid.setMinSize(calenderGrid.getMinWidth(),calenderGrid.getMinHeight());
-        grid.setPrefSize(calenderGrid.getPrefWidth(),calenderGrid.getPrefHeight());
-        grid.setStyle(calenderGrid.getStyle());
-        grid.setBorder(calenderGrid.getBorder());
-        grid.setOnKeyPressed(grid.getOnKeyPressed());
-        grid.idProperty().setValue(calenderGrid.getId());
-
-
-        calenderGrid.getChildren().clear();
-       */
+    public long getTotalDaysMonth() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
-        int monthCount = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        LocalDateTime month = LocalDateTime.now().plusMonths(mothSlideCount);
+        calendar.set(month.getYear(), month.getMonthValue(), 1, 0, 0, 0);
+        LocalDateTime beginn = month.withDayOfMonth(1);
+        LocalDateTime end = month.plusMonths(1).withDayOfMonth(1).minusDays(1);
+
+        this.month.setText(monthNames[month.getMonthValue()]);
+        return beginn.until(end, ChronoUnit.DAYS);
+
+    }
+
+    public void creatCalender() throws IOException {
+
+
         int day = 1;
-        int month = 0;
-        this.month.setText(monthNames[calendar.get(Calendar.MONTH)]);
+        int monthVisable = 0;
+
+
         for (int row = 0; row < calenderGrid.getRowCount(); row++) {
             for (int colum = 0; colum < calenderGrid.getColumnCount(); colum++) {
+                removeLabelByRowColumnIndex(row, colum, calenderGrid);
 
                 Label label = new Label();
                 label.setText(String.valueOf(day));
@@ -165,29 +165,26 @@ public class CalenderController {
                 label.setTextAlignment(TextAlignment.RIGHT);
                 label.setContentDisplay(ContentDisplay.TOP);
                 label.autosize();
-                loadAppointments(calenderGrid, colum, row, cell, month, day);
+                loadAppointments(calenderGrid, colum, row, cell, monthVisable, day);
                 calenderGrid.add(label, colum, row);
-                day++;
-                //  calenderGrid.getCellBounds(row,colum).
-                if (day == monthCount) {
+                if ((day - 1) == getTotalDaysMonth()) {
                     day = 1;
-                    month++;
+                    monthVisable++;
                 }
-
+                day++;
             }
         }
-        //root.getChildrenUnmodifiable().add(grid);
-
     }
 
 
     @FXML
-    private void previousMonth() {
+    private void previousMonth() throws IOException {
         Calendar calendar = Calendar.getInstance();
         int month = calendar.get(Calendar.MONTH) + mothSlideCount;
-        if (month != 0) {
+        if (month != 1) {
             mothSlideCount--;
             this.month.setText(monthNames[month]);
+            creatCalender();
         }
     }
 
@@ -195,21 +192,38 @@ public class CalenderController {
     private void nextMonth() {
         Calendar calendar = Calendar.getInstance();
         int month = calendar.get(Calendar.MONTH) + mothSlideCount;
-        if (month != 11) {
+        if (month != 12) {
             mothSlideCount++;
             this.month.setText(monthNames[month]);
         }
+
 
     }
 
     private void loadAppointments(GridPane calenderGrid, int colum, int row, Bounds cell, int month, int day) {
         for (Appointment appointment : appointments) {
-            if (appointment.getDate().getDayOfMonth() == day && appointment.getDate().getMonth() == LocalDateTime.now().getMonth().plus(month)) {
-                Button button = new Button();
-                button.setMinSize(cell.getWidth(), 10);
-                button.autosize();
-                button.setText(appointment.getTitel());
-                calenderGrid.add(button, colum, row);
+            if (mothSlideCount > 0) {
+                if (appointment.getDate() == LocalDateTime.now().plusMonths(mothSlideCount)) {
+                    Button button = new Button();
+                    button.setMinSize(cell.getWidth(), 10);
+                    button.autosize();
+                    button.setText(appointment.getTitel());
+                    calenderGrid.add(button, colum, row);
+                }
+            }
+
+        }
+
+    }
+
+    public void removeLabelByRowColumnIndex(final int row, final int column, GridPane gridPane) {
+
+        ObservableList<Node> childrens = gridPane.getChildren();
+        for (Node node : childrens) {
+            if (node instanceof Label && gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
+                Label label = (Label) node;
+                gridPane.getChildren().remove(label);
+                break;
             }
         }
     }
