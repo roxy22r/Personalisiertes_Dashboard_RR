@@ -24,6 +24,7 @@ public class StockController {
     private Scene scene;
     @FXML
     private Parent root;
+    private static final String IMPRESSUM = "Company: RaXi\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
 
     @FXML
     public void onClickGetCalenderView(ActionEvent event) throws IOException {
@@ -55,7 +56,7 @@ public class StockController {
         text.setTextAlignment(TextAlignment.CENTER);
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setTitle("Impressum");
-        dialog.setContentText("Company: RaXi\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com");
+        dialog.setContentText(IMPRESSUM);
         dialog.setResizable(false);
         dialog.initStyle(StageStyle.UTILITY);
         dialog.getDialogPane().setMinSize(500, 230);

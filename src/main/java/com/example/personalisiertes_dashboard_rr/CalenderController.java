@@ -37,7 +37,7 @@ public class CalenderController {
     private Parent root;
     @FXML
     private GridPane calenderGrid;
-    //Owner owner = new Owner("Emma","Whatson");
+    private static final String IMPRESSUM = "Company: RaXi\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
     @FXML
     private ComboBox peopleDirectory;
     String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -46,7 +46,8 @@ public class CalenderController {
     private Label monthLabel;
     @FXML
     private Pane appointmentsOftTheDay;
-    // private Person person = owner;
+    Owner owner = new Owner("Emma", "Whatson");
+    private Person person = owner;
 
 
     private List<Appointment> appointments = new ArrayList<>(Arrays.asList(
@@ -70,17 +71,18 @@ public class CalenderController {
         list.add("Owner");
         list.add("Both");
         ObservableList obList = FXCollections.observableList(list);
-        peopleDirectory.getItems().clear();
+        peopleDirectory.getSelectionModel().getSelectedIndex();
         peopleDirectory.setItems(obList);
     }
 
     @FXML
     private void showVisableAppointmentsOfPerson() {
-        //  if (PersonKind.valueOf( peopleDirectory.getValue().toString())==PersonKind.PO){
-        //     person = new ProjectOwner("","");
-        //  }else {
-        //      person = owner;
-        // }
+
+        if (PersonKind.valueOf(peopleDirectory.getValue().toString()) == PersonKind.PO) {
+            person = new ProjectOwner("", "");
+        } else {
+            person = owner;
+        }
     }
 
 
@@ -288,11 +290,10 @@ public class CalenderController {
     }
 
     private void showAppointmentInfo(ActionEvent event, Appointment appointment) {
-
-
+        //
         Button edit = new Button();
         edit.setText("edit");
-
+        //
         String lightGreyStyle = "-fx-background-color: #9faabd;";
         GridPane grid = new GridPane();
         Label titeLabel = new Label();
@@ -300,29 +301,28 @@ public class CalenderController {
         TextField textTitel = new TextField();
         textTitel.setText(appointment.getTitel());
         textTitel.setDisable(true);
-
+        //
         textTitel.setStyle(lightGreyStyle);
         Label dateLabel = new Label();
         dateLabel.setText("Date:");
         Label durrationLabel = new Label();
         durrationLabel.setText("Durration");
-
+        //
         DatePicker datePicker = new DatePicker();
         datePicker.setStyle(lightGreyStyle);
         datePicker.setValue(appointment.getDate().toLocalDate());
         datePicker.setDisable(true);
-
-
+        //
         TextField textBeginn = new TextField();
         textBeginn.setStyle(lightGreyStyle);
         textBeginn.setText(appointment.getBegin().toString());
         textBeginn.setDisable(true);
-
+        //
         TextField textEnd = new TextField();
         textEnd.setStyle(lightGreyStyle);
         textEnd.setText(appointment.getEnd().toString());
         textEnd.setDisable(true);
-
+        //
         Label toLabel = new Label();
         toLabel.setText("to");
         TextArea textArea = new TextArea();
@@ -409,7 +409,7 @@ public class CalenderController {
         text.setTextAlignment(TextAlignment.CENTER);
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setTitle("Impressum");
-        dialog.setContentText("Company: RaXi\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com");
+        dialog.setContentText(IMPRESSUM);
         dialog.setResizable(false);
         dialog.initStyle(StageStyle.UTILITY);
         dialog.getDialogPane().setMinSize(500, 230);
