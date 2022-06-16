@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
@@ -76,32 +77,46 @@
                                     <Circle fill="WHITE" layoutX="124.0" layoutY="95.0" radius="68.0" stroke="BLACK" strokeType="INSIDE" />
                                     <ImageView fitHeight="78.0" fitWidth="95.0" layoutX="85.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
                                         <image>
-                                            <Image url="@../../../../../img/person-icon.jpg" />
+                                            <Image url="@../../../../../img/person-icon.jpg"/>
                                         </image>
                                     </ImageView>
-                                    <Label layoutX="70.0" layoutY="165.0" prefHeight="17.0" prefWidth="108.0" text="Emma Watson">
+                                    <Label layoutX="70.0" layoutY="165.0" prefHeight="17.0" prefWidth="108.0"
+                                           text="Emma Watson">
                                         <font>
-                                            <Font name="SansSerif Regular" size="14.0" />
+                                            <Font name="SansSerif Regular" size="14.0"/>
                                         </font>
                                     </Label>
                                 </children>
                             </Pane>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#showImpressum"
+                                        prefHeight="29.0" prefWidth="226.0" style="-fx-background-color: #BCC3FF;"
+                                        text="Impressum" textFill="#29c2dd" GridPane.columnSpan="4"
+                                        GridPane.rowIndex="10">
+                                    <font>
+                                        <Font name="Comic Sans MS Bold" size="13.0"/>
+                                    </font>
+                                </Button>
                             </children>
                         </GridPane>
          </children></Pane>
-          <Pane layoutX="1082.0" layoutY="113.0" prefHeight="702.0" prefWidth="203.0" style="-fx-background-color: #DFE6E6;" AnchorPane.bottomAnchor="-20.0" AnchorPane.rightAnchor="-20.0" AnchorPane.topAnchor="80.0">
-         <children>
-                  <Pane prefHeight="50.0" prefWidth="204.0" style="-fx-background-color: white;">
-                      <children>
-                          <Label layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="140.0" text="Date">
-                              <font>
-                                  <Font name="Comic Sans MS" size="14.0"/>
-                              </font>
-                          </Label>
-                      </children>
-                  </Pane>
-         </children>
-          </Pane>
+        <Pane fx:id="appointmentsOftTheDay" layoutX="1082.0" layoutY="113.0" opacity="0.0" prefHeight="702.0"
+              prefWidth="203.0" style="-fx-background-color: #DFE6E6;" AnchorPane.bottomAnchor="-20.0"
+              AnchorPane.rightAnchor="-20.0" AnchorPane.topAnchor="80.0">
+            <children>
+                <Pane prefHeight="50.0" prefWidth="204.0" style="-fx-background-color: white;">
+                    <children>
+                        <Label layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="140.0" text="Date">
+                            <font>
+                                <Font name="Comic Sans MS" size="14.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+            <effect>
+                <Blend/>
+            </effect>
+        </Pane>
         <Pane layoutX="293.0" layoutY="197.0" minHeight="77.0" minWidth="668.0" prefHeight="77.0" prefWidth="819.0"
               style="-fx-background-color: white; -fx-border-color: #707070; -fx-border-width: 5; -fx-border-radius: 6;"
               AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="261.0" AnchorPane.topAnchor="197.0">
@@ -141,7 +156,8 @@
             </rowConstraints>
         </GridPane>
         <Button layoutX="297.0" layoutY="134.0" mnemonicParsing="false" onAction="#addAppointment" text="ADD"/>
-        <ComboBox fx:id="person" layoutX="372.0" layoutY="134.0" prefHeight="25.0" prefWidth="209.0"/>
+        <ComboBox fx:id="peopleDirectory" layoutX="372.0" layoutY="134.0" onAction="#showVisableAppointmentsOfPerson"
+                  prefHeight="25.0" prefWidth="209.0"/>
         <GridPane layoutX="290.0" layoutY="296.0" prefHeight="42.0" prefWidth="825.0"
                   style="-fx-background-color: #32c7c9;" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="265.0"
                   AnchorPane.topAnchor="276.0">

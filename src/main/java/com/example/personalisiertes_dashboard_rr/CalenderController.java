@@ -1,5 +1,6 @@
 package com.example.personalisiertes_dashboard_rr;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +12,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -25,21 +28,25 @@ import java.util.*;
 
 
 public class CalenderController {
+    Label response;
     @FXML
-    private Stage stage;
+    private Stage stage = new Stage();
     @FXML
     private Scene scene;
     @FXML
     private Parent root;
     @FXML
     private GridPane calenderGrid;
-
+    //Owner owner = new Owner("Emma","Whatson");
     @FXML
     private ComboBox peopleDirectory;
     String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     int mothSlideCount = 0;
     @FXML
     private Label monthLabel;
+    @FXML
+    private Pane appointmentsOftTheDay;
+    // private Person person = owner;
 
 
     private List<Appointment> appointments = new ArrayList<>(Arrays.asList(
@@ -51,6 +58,31 @@ public class CalenderController {
             new Appointment("Ferien 234ZG", LocalDateTime.of(2022, Month.MAY, 25, 0, 0), LocalTime.of(10, 0), LocalTime.of(14, 0), " Team arbeit preasentation"),
             new Appointment("Film Abend", LocalDateTime.of(2022, Month.MAY, 20, 0, 0), LocalTime.of(17, 0), LocalTime.of(19, 0), " Event")
     ));
+
+    private List<ProjectOwner> po = new ArrayList<>(Arrays.asList(
+            new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.JUNE, 7, 13, 30), LocalDateTime.of(2022, Month.JUNE, 7, 17, 15))
+    ));
+
+
+    private void setConboBox() {
+        List<String> list = new ArrayList<String>();
+        list.add("PO");
+        list.add("Owner");
+        list.add("Both");
+        ObservableList obList = FXCollections.observableList(list);
+        peopleDirectory.getItems().clear();
+        peopleDirectory.setItems(obList);
+    }
+
+    @FXML
+    private void showVisableAppointmentsOfPerson() {
+        //  if (PersonKind.valueOf( peopleDirectory.getValue().toString())==PersonKind.PO){
+        //     person = new ProjectOwner("","");
+        //  }else {
+        //      person = owner;
+        // }
+    }
+
 
     @FXML
     public void onClickGetAJokeView(ActionEvent event) throws IOException {
@@ -114,6 +146,7 @@ public class CalenderController {
         Optional<ButtonType> result = dialog.showAndWait();
         try {
             if (result.get() == create && !textArea.getText().isEmpty()) {
+
                 Appointment appointment = new Appointment(textTitel.getText(), datePicker.getValue(), textBeginn.getText(), textEnd.getText(), textArea.getText());
                 appointments.add(appointment);
 
@@ -145,13 +178,14 @@ public class CalenderController {
         calendar.set(LocalDateTime.now().getYear(), month.getMonthValue(), 1, 0, 0, 0);
 
 
-        this.monthLabel.setText(monthNames[month.getMonthValue()]);
+        setMonthLabelInCalender(month.getMonthValue());
         return beginn.until(end, ChronoUnit.DAYS);
 
     }
 
     public void reloadCalenderSlide() {
         try {
+            setConboBox();
             int day = 1;
             int monthVisable = 0;
             Month month = LocalDateTime.now().plusMonths(mothSlideCount).getMonth();
@@ -189,10 +223,10 @@ public class CalenderController {
 
 
             Calendar calendar = Calendar.getInstance();
-            Month month = LocalDateTime.now().minusMonths(mothSlideCount * (-1)).getMonth();
+            Month month = LocalDateTime.now().minusMonths(mothSlideCount).getMonth();
             if (month.getValue() >= Month.JANUARY.getValue()) {
                 mothSlideCount--;
-                this.monthLabel.setText(monthNames[month.getValue()]);
+                setMonthLabelInCalender(month.getValue());
                 reloadCalenderSlide();
             }
         } catch (Exception e) {
@@ -203,15 +237,12 @@ public class CalenderController {
     @FXML
     private void nextMonth() {
         try {
-
-
             Calendar calendar = Calendar.getInstance();
             Month month = LocalDateTime.now().plusMonths(mothSlideCount).getMonth();
             if (month.getValue() + 1 < Month.DECEMBER.getValue()) {
                 mothSlideCount++;
-                this.monthLabel.setText(monthNames[month.getValue() - 1]);
+                setMonthLabelInCalender(month.getValue());
                 reloadCalenderSlide();
-
             }
         } catch (Exception e) {
             System.out.println("nextMonth" + e);
@@ -220,7 +251,12 @@ public class CalenderController {
 
     }
 
+    private void setMonthLabelInCalender(int value) {
+        this.monthLabel.setText(monthNames[value]);
+    }
+
     private void loadAppointments(GridPane calenderGrid, int colum, int row, Bounds cell, Month month, int day) {
+        //if (person.getPerosnkind()==PersonKind.Owner) {
         for (Appointment appointment : appointments) {
 
             if (appointment.getDate().getMonth() == month && appointment.getDate().getDayOfMonth() == day) {
@@ -230,10 +266,116 @@ public class CalenderController {
                 button.setText(appointment.getTitel());
                 calenderGrid.add(button, colum, row);
             }
-
-
         }
 
+
+    }
+
+
+    private void loadAppointmentOftheDay(LocalDateTime date, Appointment appointmentOftheDay) {
+        for (Appointment appointment : appointments) {
+            {
+                if (appointment.getDate().getMonth() == date.getMonth() && appointment.getDate().getDayOfMonth() == date.getDayOfMonth()) {
+                    Button button = new Button();
+                    button.autosize();
+                    button.setOnAction(event -> showAppointmentInfo(event, appointment));
+                    button.setText(appointment.getTitel());
+                    appointmentsOftTheDay.getChildren().add(button);
+                }
+            }
+        }
+        appointmentsOftTheDay.setOpacity(1);
+    }
+
+    private void showAppointmentInfo(ActionEvent event, Appointment appointment) {
+
+
+        Button edit = new Button();
+        edit.setText("edit");
+
+        String lightGreyStyle = "-fx-background-color: #9faabd;";
+        GridPane grid = new GridPane();
+        Label titeLabel = new Label();
+        titeLabel.setText("Titel:");
+        TextField textTitel = new TextField();
+        textTitel.setText(appointment.getTitel());
+        textTitel.setDisable(true);
+
+        textTitel.setStyle(lightGreyStyle);
+        Label dateLabel = new Label();
+        dateLabel.setText("Date:");
+        Label durrationLabel = new Label();
+        durrationLabel.setText("Durration");
+
+        DatePicker datePicker = new DatePicker();
+        datePicker.setStyle(lightGreyStyle);
+        datePicker.setValue(appointment.getDate().toLocalDate());
+        datePicker.setDisable(true);
+
+
+        TextField textBeginn = new TextField();
+        textBeginn.setStyle(lightGreyStyle);
+        textBeginn.setText(appointment.getBegin().toString());
+        textBeginn.setDisable(true);
+
+        TextField textEnd = new TextField();
+        textEnd.setStyle(lightGreyStyle);
+        textEnd.setText(appointment.getEnd().toString());
+        textEnd.setDisable(true);
+
+        Label toLabel = new Label();
+        toLabel.setText("to");
+        TextArea textArea = new TextArea();
+        textArea.setText(lightGreyStyle);
+        textArea.setText(appointment.getNote());
+        textArea.setDisable(true);
+        Label noteLable = new Label();
+        noteLable.setText("Note: ");
+        textArea.setStyle("-fx-background-color: white;");
+
+        Alert dialog = new Alert(Alert.AlertType.NONE);
+        dialog.setResizable(false);
+        dialog.initStyle(StageStyle.UTILITY);
+
+        dialog.getDialogPane().getScene().setFill(Color.BLACK);
+        dialog.getDialogPane().setMinSize(500, 330);
+        dialog.getDialogPane().setPrefSize(500, 330);
+        dialog.getDialogPane().setStyle("-fx-background-color: #97d1a4;");
+        ButtonType ok = new ButtonType("OK");
+        dialog.getButtonTypes().setAll(ok);
+        dialog.getDialogPane().setContent(grid);
+        grid.add(edit, 0, 0);
+        grid.add(titeLabel, 0, 1);
+        grid.add(textTitel, 2, 1);
+        grid.add(dateLabel, 0, 4);
+        grid.add(datePicker, 2, 4);
+        grid.add(durrationLabel, 0, 5);
+        grid.add(textBeginn, 2, 5);
+        grid.add(toLabel, 3, 5);
+        grid.add(textEnd, 4, 5);
+        grid.add(noteLable, 0, 6);
+        grid.add(textArea, 0, 7, 4, 4);
+
+
+        edit.setOnAction(appointmentEvent -> editAppointment(appointmentEvent, dialog, ok, textTitel, datePicker, textBeginn, textEnd, textArea));
+        validateUserInput(dialog, ok, textTitel, datePicker, textBeginn, textEnd, textArea);
+        reloadCalenderSlide();
+    }
+
+
+    private void editAppointment(ActionEvent event, Alert dialog, ButtonType ok, TextField textTitel, DatePicker datePicker, TextField textBeginn, TextField textEnd, TextArea textArea) {
+        textTitel.setDisable(false);
+        datePicker.setDisable(false);
+        textBeginn.setDisable(false);
+        textEnd.setDisable(false);
+        textArea.setDisable(false);
+        ok = new ButtonType("create");
+
+
+    }
+
+    public void removeButton(Button button) {
+        root.getChildrenUnmodifiable().remove(button);
     }
 
     public void removeLabelByRowColumnIndex(final int row, final int column, GridPane gridPane) {
@@ -249,7 +391,6 @@ public class CalenderController {
     }
 
     public void removeButtonByRowColumnIndex(final int row, final int column, GridPane gridPane) {
-
         ObservableList<Node> childrens = gridPane.getChildren();
         for (Node node : childrens) {
             if (node instanceof Button && gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
@@ -257,6 +398,29 @@ public class CalenderController {
                 gridPane.getChildren().remove(button);
                 break;
             }
+        }
+    }
+
+    @FXML
+    public void showImpressum() {
+        Text text = new Text();
+        text.setStyle("-fx-font: 30 arial;");
+        text.setStyle("-fx-font-weight:bold;");
+        text.setTextAlignment(TextAlignment.CENTER);
+        Alert dialog = new Alert(Alert.AlertType.NONE);
+        dialog.setTitle("Impressum");
+        dialog.setContentText("Company: RaXi\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com");
+        dialog.setResizable(false);
+        dialog.initStyle(StageStyle.UTILITY);
+        dialog.getDialogPane().setMinSize(500, 230);
+        dialog.getDialogPane().setPrefSize(500, 230);
+        dialog.getDialogPane().setStyle("-fx-background-color: #97d1a4;");
+        dialog.getDialogPane().getScene().setFill(Color.WHITE);
+        ButtonType OK = new ButtonType("OK");
+        dialog.getButtonTypes().setAll(OK);
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.get() == OK) {
+            System.out.println("Approve Button is clicked");
         }
     }
 

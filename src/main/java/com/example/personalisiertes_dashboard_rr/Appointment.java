@@ -16,8 +16,8 @@ public class Appointment {
     public Appointment(String titel, LocalDate date, String begin, String end, String note) {
         this.titel = titel;
         this.date = date.atStartOfDay();
-        this.begin = LocalTime.parse(begin, TIME_FORMATTER);
-        this.end = LocalTime.parse(end, TIME_FORMATTER);
+        this.begin = LocalTime.parse(begin.trim(), TIME_FORMATTER);
+        this.end = LocalTime.parse(end.trim(), TIME_FORMATTER);
 
     }
 
