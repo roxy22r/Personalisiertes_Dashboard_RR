@@ -304,12 +304,14 @@ public class CalenderController implements Initializable {
     }
 
     private void setAppointmentToDate(Person person, GridPane calenderGrid, int colum, int row, Bounds cell, Month month, int day, Appointment appointment, String style) {
+
         if (appointment.getDate().getMonth() == month && appointment.getDate().getDayOfMonth() == day) {
             Button button = new Button();
             button.setStyle(style);
             button.setMinSize(cell.getWidth(), 10);
             button.autosize();
             button.setText(appointment.getTitel());
+            button.setOnAction(event -> System.out.println("test"));
             calenderGrid.add(button, colum, row);
         }
     }

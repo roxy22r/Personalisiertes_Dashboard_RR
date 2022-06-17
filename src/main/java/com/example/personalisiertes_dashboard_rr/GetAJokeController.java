@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
@@ -148,6 +149,7 @@ public class GetAJokeController {
         Text text = new Text();
         text.setStyle("-fx-font: 30 arial;");
         text.setStyle("-fx-font-weight:bold;");
+        text.setFont(Font.font("Comic Sans MS"));
         text.setTextAlignment(TextAlignment.CENTER);
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setTitle("Impressum");

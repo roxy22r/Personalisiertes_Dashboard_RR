@@ -99,9 +99,9 @@
                             </children>
                         </GridPane>
          </children></Pane>
-        <Pane fx:id="appointmentsOftTheDay" layoutX="1082.0" layoutY="113.0" opacity="0.0" prefHeight="702.0"
-              prefWidth="203.0" style="-fx-background-color: #DFE6E6;" AnchorPane.bottomAnchor="-20.0"
-              AnchorPane.rightAnchor="-20.0" AnchorPane.topAnchor="80.0">
+        <Pane fx:id="appointmentsOftTheDay" layoutX="1082.0" layoutY="113.0" prefHeight="702.0" prefWidth="203.0"
+              style="-fx-background-color: #DFE6E6;" AnchorPane.bottomAnchor="-20.0" AnchorPane.rightAnchor="-20.0"
+              AnchorPane.topAnchor="80.0">
             <children>
                 <Pane prefHeight="50.0" prefWidth="204.0" style="-fx-background-color: white;">
                     <children>
