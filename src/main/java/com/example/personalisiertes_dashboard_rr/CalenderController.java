@@ -175,7 +175,7 @@ public class CalenderController implements Initializable {
         try {
             if (result.get() == create && !textArea.getText().isEmpty()) {
                 Appointment appointment = new Appointment(textTitel.getText(), datePicker.getValue(), textBeginn.getText(), textEnd.getText(), textArea.getText());
-                appointments.add(appointment);
+                owner.addAppointment(appointment);
             } else if (IsAnyAppointmentInputEmpty(textTitel, datePicker, textBeginn, textEnd, textArea)) {
                 noteLable.setText("You have to do a Input in Text Area");
                 textArea.setStyle("-fx-border-color: #f73c28;");
@@ -187,7 +187,7 @@ public class CalenderController implements Initializable {
     }
 
     private boolean IsAnyAppointmentInputEmpty(TextField textTitel, DatePicker datePicker, TextField textBeginn, TextField textEnd, TextArea textArea) {
-        return textArea.getText().isEmpty() && textEnd.getText().isEmpty() && textBeginn.getText().isEmpty() && textTitel.getText().isEmpty();
+        return textArea.getText().isEmpty();
     }
 
     @FXML
