@@ -30,7 +30,7 @@ import java.util.*;
 
 
 public class CalenderController implements Initializable {
-    Label response;
+
     @FXML
     private Stage stage = new Stage();
     @FXML
