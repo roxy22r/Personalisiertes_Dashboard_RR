@@ -82,7 +82,7 @@ public class GetAJokeController {
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setContentText(getRandomJoke().getText());
         dialog.setResizable(false);
-        dialog.initStyle(StageStyle.UTILITY);
+        dialog.initStyle(StageStyle.UNDECORATED);
         dialog.getDialogPane().setMinSize(500, 230);
         dialog.getDialogPane().setPrefSize(500, 230);
         dialog.getDialogPane().setStyle("-fx-background-color: #97d1a4;");
@@ -112,8 +112,8 @@ public class GetAJokeController {
 
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setResizable(false);
-        dialog.initStyle(StageStyle.UTILITY);
-
+        dialog.initStyle(StageStyle.UNDECORATED);
+        dialog.getDialogPane().getButtonTypes().remove(ButtonType.CANCEL);
         dialog.getDialogPane().getScene().setFill(Color.BLACK);
         dialog.getDialogPane().setMinSize(500, 330);
         dialog.getDialogPane().setPrefSize(500, 330);
@@ -153,7 +153,7 @@ public class GetAJokeController {
         dialog.setTitle("Impressum");
         dialog.setContentText(IMPRESSUM);
         dialog.setResizable(false);
-        dialog.initStyle(StageStyle.UTILITY);
+        dialog.initStyle(StageStyle.UNDECORATED);
         dialog.getDialogPane().setMinSize(500, 230);
         dialog.getDialogPane().setPrefSize(500, 230);
         dialog.getDialogPane().setStyle("-fx-background-color: #97d1a4;");

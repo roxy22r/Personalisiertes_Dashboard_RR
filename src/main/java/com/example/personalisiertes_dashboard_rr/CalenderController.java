@@ -145,7 +145,7 @@ public class CalenderController implements Initializable {
 
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setResizable(false);
-        dialog.initStyle(StageStyle.UTILITY);
+        dialog.initStyle(StageStyle.UNDECORATED);
 
         dialog.getDialogPane().getScene().setFill(Color.BLACK);
         dialog.getDialogPane().setMinSize(500, 330);
