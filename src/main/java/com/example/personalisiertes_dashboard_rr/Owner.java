@@ -6,7 +6,7 @@ public class Owner extends Person {
     }
 
     @Override
-    public PersonKind getPerosnkind() {
-        return PersonKind.Owner;
+    public personAppointmentCalenderKind getPersonKind() {
+        return personAppointmentCalenderKind.Owner;
     }
 }

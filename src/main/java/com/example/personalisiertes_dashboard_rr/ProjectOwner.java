@@ -8,6 +8,7 @@ public class ProjectOwner extends Person {
         super(firstName, secondName);
     }
 
+
     public ProjectOwner(String firstName, String secondName, LocalDateTime beginAvailableTime, LocalDateTime endAvailableTime) {
         super(firstName, secondName);
         addAvaialbeTime(beginAvailableTime, endAvailableTime);
@@ -18,7 +19,7 @@ public class ProjectOwner extends Person {
     }
 
     @Override
-    public PersonKind getPerosnkind() {
-        return PersonKind.PO;
+    public personAppointmentCalenderKind getPersonKind() {
+        return personAppointmentCalenderKind.PO;
     }
 }

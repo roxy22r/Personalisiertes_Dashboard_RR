@@ -48,8 +48,10 @@ public class CalenderController implements Initializable {
     private Label monthLabel;
     @FXML
     private Pane appointmentsOftTheDay;
-    Owner owner = new Owner("Emma", "Whatson");
+    boolean showBothCalender = false;
+    private Owner owner = new Owner("Emma", "Whatson");
     private Person person = owner;
+    private ProjectOwner projectOwner = new ProjectOwner("", "");
 
 
     private List<Appointment> appointments = new ArrayList<>(Arrays.asList(
@@ -61,15 +63,21 @@ public class CalenderController implements Initializable {
             new Appointment("Ferien 234ZG", LocalDateTime.of(2022, Month.MAY, 25, 0, 0), LocalTime.of(10, 0), LocalTime.of(14, 0), " Team arbeit preasentation"),
             new Appointment("Film Abend", LocalDateTime.of(2022, Month.MAY, 20, 0, 0), LocalTime.of(17, 0), LocalTime.of(19, 0), " Event")
     ));
-
-    private List<ProjectOwner> po = new ArrayList<>(Arrays.asList(
-            new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.JUNE, 7, 13, 30), LocalDateTime.of(2022, Month.JUNE, 7, 17, 15))
+    private List<ProjectOwner> projectOwners = new ArrayList<>(Arrays.asList(
+            new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.FEBRUARY, 7, 13, 30), LocalDateTime.of(2022, Month.FEBRUARY, 7, 17, 15)),
+            new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.MAY, 8, 15, 50), LocalDateTime.of(2022, Month.MAY, 8, 18, 30)),
+            new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.MARCH, 5, 7, 25), LocalDateTime.of(2022, Month.MARCH, 5, 12, 50)),
+            new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.OCTOBER, 24, 8, 0), LocalDateTime.of(2022, Month.OCTOBER, 24, 10, 0)),
+            new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.JULY, 30, 9, 15), LocalDateTime.of(2022, Month.JULY, 30, 11, 55)),
+            new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.AUGUST, 9, 17, 45), LocalDateTime.of(2022, Month.AUGUST, 9, 20, 45))
     ));
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setConboBox();
         reloadCalenderSlide();
+        projectOwner.addAllAppointments(getAllPoAppointments());
+        owner.addAllAppointments(appointments);
 
     }
 
@@ -77,7 +85,7 @@ public class CalenderController implements Initializable {
         List<String> list = new ArrayList<String>();
         list.add("PO");
         list.add("Owner");
-        list.add("Both");
+        list.add("All");
         ObservableList obList = FXCollections.observableList(list);
         peopleDirectory.getSelectionModel().getSelectedIndex();
         peopleDirectory.setItems(obList);
@@ -85,14 +93,24 @@ public class CalenderController implements Initializable {
 
     @FXML
     private void showVisableAppointmentsOfPerson() {
-
-        if (PersonKind.valueOf(peopleDirectory.getValue().toString()) == PersonKind.PO) {
-            person = new ProjectOwner("", "");
+        showBothCalender = false;
+        if (personAppointmentCalenderKind.valueOf(peopleDirectory.getValue().toString()) == personAppointmentCalenderKind.PO) {
+            person = projectOwner;
+        } else if (personAppointmentCalenderKind.valueOf(peopleDirectory.getValue().toString()) == personAppointmentCalenderKind.All) {
+            showBothCalender = true;
         } else {
             person = owner;
         }
+        reloadCalenderSlide();
     }
 
+    private List<Appointment> getAllPoAppointments() {
+        List<Appointment> appointments = new ArrayList<>();
+        for (ProjectOwner po : projectOwners) {
+            appointments.addAll(po.getAppointments());
+        }
+        return appointments;
+    }
 
     @FXML
     public void onClickGetAJokeView(ActionEvent event) throws IOException {
@@ -260,18 +278,36 @@ public class CalenderController implements Initializable {
     }
 
     private void loadAppointments(GridPane calenderGrid, int colum, int row, Bounds cell, Month month, int day) {
+        String green = "-fx-background-color: green;";
+        String yellow = "-fx-background-color: yellow;";
         for (Appointment appointment : person.getAppointments()) {
-
-            if (appointment.getDate().getMonth() == month && appointment.getDate().getDayOfMonth() == day) {
-                Button button = new Button();
-                button.setMinSize(cell.getWidth(), 10);
-                button.autosize();
-                button.setText(appointment.getTitel());
-                calenderGrid.add(button, colum, row);
+            setAppointmentToDate(person, calenderGrid, colum, row, cell, month, day, appointment, yellow);
+        }
+        if (showBothCalender) {
+            for (Appointment appointment : person.getAppointments()) {
+                Person otherCalenderPersonType = getOtherCalenderPersonType();
+                setAppointmentToDate(otherCalenderPersonType, calenderGrid, colum, row, cell, month, day, appointment, green);
             }
         }
+    }
 
+    private Person getOtherCalenderPersonType() {
+        if (person.getPersonKind() == personAppointmentCalenderKind.Owner) {
+            return projectOwner;
+        } else {
+            return owner;
+        }
+    }
 
+    private void setAppointmentToDate(Person person, GridPane calenderGrid, int colum, int row, Bounds cell, Month month, int day, Appointment appointment, String style) {
+        if (appointment.getDate().getMonth() == month && appointment.getDate().getDayOfMonth() == day) {
+            Button button = new Button();
+            button.setStyle(style);
+            button.setMinSize(cell.getWidth(), 10);
+            button.autosize();
+            button.setText(appointment.getTitel());
+            calenderGrid.add(button, colum, row);
+        }
     }
 
 

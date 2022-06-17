@@ -81,13 +81,7 @@
                             </Label>
                         </children>
                     </Pane>
-                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#showImpressum" prefHeight="29.0"
-                            prefWidth="226.0" style="-fx-background-color: #BCC3FF;" text="Impressum" textFill="#29c2dd"
-                            GridPane.columnSpan="4" GridPane.rowIndex="10">
-                        <font>
-                            <Font name="Comic Sans MS Bold" size="13.0"/>
-                        </font>
-                    </Button>
+
                 </children>
             </GridPane>
         </children>
@@ -118,6 +112,14 @@
                   strokeLineCap="ROUND" strokeWidth="5.0"/>
         </children>
     </Pane>
+    <Button alignment="CENTER" layoutX="2.0" layoutY="765.0" mnemonicParsing="false" onAction="#showImpressum"
+            prefHeight="29.0" prefWidth="226.0" style="-fx-background-color: #BCC3FF;" text="Impressum"
+            textFill="#29c2dd" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="2.0"
+            AnchorPane.rightAnchor="1052.0">
+        <font>
+            <Font name="Comic Sans MS Bold" size="13.0"/>
+        </font>
+    </Button>
     <AnchorPane prefHeight="200.0" prefWidth="200.0"/>
 
 

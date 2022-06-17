@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class Person {
     private String firstName;
     private String secondName;
-    private PersonKind perosnkind;
+    private personAppointmentCalenderKind perosnkind;
     private List<Appointment> appointments = new ArrayList<>();
 
 
@@ -15,8 +15,8 @@ public abstract class Person {
         this.secondName = secondName;
     }
 
-    public void setPersonKind(PersonKind perosnkind) {
-        this.perosnkind = perosnkind;
+    public personAppointmentCalenderKind getPersonKind() {
+        return perosnkind;
     }
 
     public String getFirstName() {
@@ -47,11 +47,11 @@ public abstract class Person {
         this.appointments.addAll(appointments);
     }
 
-    public PersonKind getPerosnkind() {
-        return perosnkind;
+    public void setPersonKind(personAppointmentCalenderKind perosnkind) {
+        this.perosnkind = perosnkind;
     }
 
-    public void setPerosnkind(PersonKind perosnkind) {
+    public void setPerosnkind(personAppointmentCalenderKind perosnkind) {
         this.perosnkind = perosnkind;
     }
 }
