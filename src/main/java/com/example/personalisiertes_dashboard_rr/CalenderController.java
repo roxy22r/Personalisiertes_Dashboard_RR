@@ -166,24 +166,28 @@ public class CalenderController implements Initializable {
         grid.add(textArea, 0, 7, 6, 6);
 
 
-        validateUserInput(dialog, create, textTitel, datePicker, textBeginn, textEnd, textArea);
+        validateUserInput(dialog, create, textTitel, datePicker, textBeginn, textEnd, noteLable, textArea);
         reloadCalenderSlide();
     }
 
-    private void validateUserInput(Alert dialog, ButtonType create, TextField textTitel, DatePicker datePicker, TextField textBeginn, TextField textEnd, TextArea textArea) {
+    private void validateUserInput(Alert dialog, ButtonType create, TextField textTitel, DatePicker datePicker, TextField textBeginn, TextField textEnd, Label noteLable, TextArea textArea) {
         Optional<ButtonType> result = dialog.showAndWait();
         try {
             if (result.get() == create && !textArea.getText().isEmpty()) {
-
                 Appointment appointment = new Appointment(textTitel.getText(), datePicker.getValue(), textBeginn.getText(), textEnd.getText(), textArea.getText());
                 appointments.add(appointment);
-
-            } else if (textArea.getText().isEmpty()) {
+            } else if (IsAnyAppointmentInputEmpty(textTitel, datePicker, textBeginn, textEnd, textArea)) {
+                noteLable.setText("You have to do a Input in Text Area");
+                textArea.setStyle("-fx-border-color: #f73c28;");
                 dialog.show();
             }
         } catch (Exception e) {
             System.out.println("Dialog was closed ->" + e);
         }
+    }
+
+    private boolean IsAnyAppointmentInputEmpty(TextField textTitel, DatePicker datePicker, TextField textBeginn, TextField textEnd, TextArea textArea) {
+        return textArea.getText().isEmpty() && textEnd.getText().isEmpty() && textBeginn.getText().isEmpty() && textTitel.getText().isEmpty();
     }
 
     @FXML
@@ -372,7 +376,7 @@ public class CalenderController implements Initializable {
         //
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setResizable(false);
-        dialog.initStyle(StageStyle.UTILITY);
+        dialog.initStyle(StageStyle.UNDECORATED);
         //
         dialog.getDialogPane().getScene().setFill(Color.BLACK);
         dialog.getDialogPane().setMinSize(500, 330);
@@ -394,7 +398,7 @@ public class CalenderController implements Initializable {
         grid.add(textArea, 0, 7, 4, 4);
         //
         edit.setOnAction(appointmentEvent -> editAppointment(appointmentEvent, dialog, ok, textTitel, datePicker, textBeginn, textEnd, textArea));
-        validateUserInput(dialog, ok, textTitel, datePicker, textBeginn, textEnd, textArea);
+        validateUserInput(dialog, ok, textTitel, datePicker, textBeginn, textEnd, noteLable, textArea);
         reloadCalenderSlide();
     }
 
@@ -446,7 +450,7 @@ public class CalenderController implements Initializable {
         dialog.setTitle("Impressum");
         dialog.setContentText(IMPRESSUM);
         dialog.setResizable(false);
-        dialog.initStyle(StageStyle.UTILITY);
+        dialog.initStyle(StageStyle.UNDECORATED);
         dialog.getDialogPane().setMinSize(500, 230);
         dialog.getDialogPane().setPrefSize(500, 230);
         dialog.getDialogPane().setStyle("-fx-background-color: #97d1a4;");

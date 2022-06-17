@@ -121,9 +121,9 @@ public class GetAJokeController {
         ButtonType create = new ButtonType("create");
         dialog.getButtonTypes().setAll(create);
         dialog.getDialogPane().setContent(grid);
-        grid.add(label, 0, 0);
-        grid.add(textArea, 0, 1, 10, 7);
 
+        grid.add(textArea, 0, 2, 5, 5);
+        grid.add(label, 0, 0);
         validateUserInput(label, textArea, dialog, create);
     }
 
@@ -134,7 +134,7 @@ public class GetAJokeController {
                 jokes.add(new Joke(textArea.getText()));
             } else if (textArea.getText().isEmpty()) {
                 label.setText("You have to do a Input in Text Area");
-                dialog.getDialogPane().setContent(label);
+                dialog.getDialogPane().lookupButton(create);
                 textArea.setStyle("-fx-border-color: #f73c28;");
                 dialog.show();
             }
