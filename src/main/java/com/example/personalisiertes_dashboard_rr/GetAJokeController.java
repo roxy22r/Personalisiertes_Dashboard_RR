@@ -28,11 +28,12 @@ public class GetAJokeController {
     @FXML
     private Parent root;
     private static final String IMPRESSUM = "Company: RaXi\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
+    private List<Joke> jokes = new ArrayList<>(Arrays.asList(
+            new Joke("A woman gets on a bus with her baby. The bus driver says: 'Ugh, that’s the ugliest baby I’ve ever seen!' The woman walks to the rear of the bus and sits down, fuming. She says to a man next to her: “The driver just insulted me!' The man says: 'You go up there and tell him off. Go on, I’ll hold your monkey for you.'"),
+            new Joke("I said to the Gym instructor 'Can you teach me to do the splits?'He said, “How flexible are you?' I said, 'I can’t make Tuesdays.'"),
+            new Joke("Police arrested two kids yesterday, one was drinking battery acid, the other was eating fireworks. They charged one – and let the other one off.")
+    ));
 
-    private List<String> Jokes = new ArrayList<>(Arrays.asList(
-            "A woman gets on a bus with her baby. The bus driver says: 'Ugh, that’s the ugliest baby I’ve ever seen!' The woman walks to the rear of the bus and sits down, fuming. She says to a man next to her: “The driver just insulted me!' The man says: 'You go up there and tell him off. Go on, I’ll hold your monkey for you.'",
-            "I said to the Gym instructor 'Can you teach me to do the splits?'He said, “How flexible are you?' I said, 'I can’t make Tuesdays.'",
-            "Police arrested two kids yesterday, one was drinking battery acid, the other was eating fireworks. They charged one – and let the other one off."));
 
     @FXML
     public void onClickGetCalenderView(ActionEvent event) throws IOException {
@@ -61,11 +62,11 @@ public class GetAJokeController {
         Text text = new Text();
         text.setStyle("-fx-font: 24 arial;");
         Alert dialog = new Alert(Alert.AlertType.NONE);
-        dialog.setContentText(getRandomJoke());
+        dialog.setContentText(getRandomJoke().getText());
         dialog.setResizable(false);
         dialog.initStyle(StageStyle.UTILITY);
-        dialog.getDialogPane().setMinSize(500, 330);
-        dialog.getDialogPane().setPrefSize(500, 330);
+        dialog.getDialogPane().setMinSize(500, 230);
+        dialog.getDialogPane().setPrefSize(500, 230);
         dialog.getDialogPane().setStyle("-fx-background-color: #97d1a4;");
         dialog.getDialogPane().getScene().setFill(Color.WHITE);
         ButtonType OK = new ButtonType("OK");
@@ -76,10 +77,10 @@ public class GetAJokeController {
         }
     }
 
-    private String getRandomJoke() {
+    private Joke getRandomJoke() {
         Random random = new Random();
-        int index = random.nextInt(Jokes.size());
-        return Jokes.get(index);
+        int index = random.nextInt(jokes.size());
+        return jokes.get(index);
     }
 
     @FXML
@@ -111,7 +112,7 @@ public class GetAJokeController {
         Optional<ButtonType> result = dialog.showAndWait();
         try {
             if (result.get() == create && !textArea.getText().isEmpty()) {
-                Jokes.add(textArea.getText());
+                jokes.add(new Joke(textArea.getText()));
             } else if (textArea.getText().isEmpty()) {
                 label.setText("You have to do a Input in Text Area");
                 dialog.getDialogPane().setContent(label);

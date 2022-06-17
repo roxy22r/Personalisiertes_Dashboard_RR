@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
@@ -27,7 +29,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 
-public class CalenderController {
+public class CalenderController implements Initializable {
     Label response;
     @FXML
     private Stage stage = new Stage();
@@ -64,6 +66,12 @@ public class CalenderController {
             new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.JUNE, 7, 13, 30), LocalDateTime.of(2022, Month.JUNE, 7, 17, 15))
     ));
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setConboBox();
+        reloadCalenderSlide();
+
+    }
 
     private void setConboBox() {
         List<String> list = new ArrayList<String>();
@@ -187,12 +195,9 @@ public class CalenderController {
 
     public void reloadCalenderSlide() {
         try {
-            setConboBox();
             int day = 1;
             int monthVisable = 0;
             Month month = LocalDateTime.now().plusMonths(mothSlideCount).getMonth();
-
-
             for (int row = 0; row < calenderGrid.getRowCount(); row++) {
                 for (int colum = 0; colum < calenderGrid.getColumnCount(); colum++) {
                     removeLabelByRowColumnIndex(row, colum, calenderGrid);
@@ -222,8 +227,6 @@ public class CalenderController {
     @FXML
     private void previousMonth() {
         try {
-
-
             Calendar calendar = Calendar.getInstance();
             Month month = LocalDateTime.now().minusMonths(mothSlideCount).getMonth();
             if (month.getValue() >= Month.JANUARY.getValue()) {
@@ -250,7 +253,6 @@ public class CalenderController {
             System.out.println("nextMonth" + e);
         }
 
-
     }
 
     private void setMonthLabelInCalender(int value) {
@@ -258,8 +260,7 @@ public class CalenderController {
     }
 
     private void loadAppointments(GridPane calenderGrid, int colum, int row, Bounds cell, Month month, int day) {
-        //if (person.getPerosnkind()==PersonKind.Owner) {
-        for (Appointment appointment : appointments) {
+        for (Appointment appointment : person.getAppointments()) {
 
             if (appointment.getDate().getMonth() == month && appointment.getDate().getDayOfMonth() == day) {
                 Button button = new Button();
@@ -332,11 +333,11 @@ public class CalenderController {
         Label noteLable = new Label();
         noteLable.setText("Note: ");
         textArea.setStyle("-fx-background-color: white;");
-
+        //
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setResizable(false);
         dialog.initStyle(StageStyle.UTILITY);
-
+        //
         dialog.getDialogPane().getScene().setFill(Color.BLACK);
         dialog.getDialogPane().setMinSize(500, 330);
         dialog.getDialogPane().setPrefSize(500, 330);
@@ -355,13 +356,11 @@ public class CalenderController {
         grid.add(textEnd, 4, 5);
         grid.add(noteLable, 0, 6);
         grid.add(textArea, 0, 7, 4, 4);
-
-
+        //
         edit.setOnAction(appointmentEvent -> editAppointment(appointmentEvent, dialog, ok, textTitel, datePicker, textBeginn, textEnd, textArea));
         validateUserInput(dialog, ok, textTitel, datePicker, textBeginn, textEnd, textArea);
         reloadCalenderSlide();
     }
-
 
     private void editAppointment(ActionEvent event, Alert dialog, ButtonType ok, TextField textTitel, DatePicker datePicker, TextField textBeginn, TextField textEnd, TextArea textArea) {
         textTitel.setDisable(false);
