@@ -24,7 +24,7 @@ public class StockController {
     private Scene scene;
     @FXML
     private Parent root;
-    private static final String IMPRESSUM = "Company: RaXi\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
+    private static final String IMPRESSUM = "Company: RaXit\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
 
     @FXML
     public void onClickGetCalenderView(ActionEvent event) throws IOException {
