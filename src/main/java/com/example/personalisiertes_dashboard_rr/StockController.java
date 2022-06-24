@@ -26,6 +26,9 @@ public class StockController {
     private Parent root;
     private static final String IMPRESSUM = "Company: RaXit\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
 
+    /*
+     * Hier wird die Kalender Ansicht geladen
+     * */
     @FXML
     public void onClickGetCalenderView(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/com/example/personalisiertes_dashboard_rr/calender-view.fxml"));
@@ -37,6 +40,9 @@ public class StockController {
         stage.show();
     }
 
+    /*
+     * Hier wird die Joke Ansicht geladen
+     * */
     @FXML
     public void onClickGetAJokeView(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/com/example/personalisiertes_dashboard_rr/getAJoke-view.fxml"));
@@ -48,6 +54,9 @@ public class StockController {
         stage.show();
     }
 
+    /*
+     * Mit dieser Funktion wird ein Impressum geladen
+     * */
     @FXML
     public void showImpressum() {
         Text text = new Text();

@@ -28,7 +28,7 @@ public class GetAJokeController {
     private Scene scene;
     @FXML
     private Parent root;
-    private static final String IMPRESSUM = "Company: RaXi\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
+    private static final String IMPRESSUM = "Company: RaXit\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
     private List<Joke> jokes = new ArrayList<>(Arrays.asList(
             new Joke("A woman gets on a bus with her baby. The bus driver says: 'Ugh, that’s the ugliest baby I’ve ever seen!' The woman walks to the rear of the bus and sits down, fuming. She says to a man next to her: “The driver just insulted me!' The man says: 'You go up there and tell him off. Go on, I’ll hold your monkey for you.'"),
             new Joke("I said to the Gym instructor 'Can you teach me to do the splits?'He said, “How flexible are you?' I said, 'I can’t make Tuesdays.'"),
@@ -53,7 +53,9 @@ public class GetAJokeController {
             new Joke("What kind of dog does a magician have?\n best jokes for kids\n A Labracadabrador!")
     ));
 
-
+    /*
+     * Hier wird die Kalender Ansicht geladen
+     * */
     @FXML
     public void onClickGetCalenderView(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/com/example/personalisiertes_dashboard_rr/calender-view.fxml"));
@@ -65,6 +67,9 @@ public class GetAJokeController {
         stage.show();
     }
 
+    /*
+     * Hier wird die Stock Ansicht geladen
+     * */
     @FXML
     public void onClickGetStockView(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/com/example/personalisiertes_dashboard_rr/stock-view.fxml"));
@@ -76,6 +81,9 @@ public class GetAJokeController {
         stage.show();
     }
 
+    /*
+     * Hier wir ein Dialog geladen für ein Witz , dass Angezeigt wird.
+     * */
     @FXML
     public void onClickShowAJoke(ActionEvent event) throws IOException {
         Text text = new Text();
@@ -97,12 +105,18 @@ public class GetAJokeController {
         }
     }
 
+    /*
+     * Hier wird Zufällig ein Witz geholt
+     * */
     private Joke getRandomJoke() {
         Random random = new Random();
         int index = random.nextInt(jokes.size());
         return jokes.get(index);
     }
 
+    /*
+     * Hier wird ein Wid ein Dialog geladen um ein Witz Hinzuzufügen
+     * */
     @FXML
     public void onClickAddAJoke(ActionEvent event) {
         GridPane grid = new GridPane();
@@ -128,6 +142,9 @@ public class GetAJokeController {
         validateUserInput(label, textArea, dialog, create);
     }
 
+    /*
+     * Hier wird die Nutzer eingabe Validiert, ob der Text leer ist oder nicht
+     * */
     private void validateUserInput(Label label, TextArea textArea, Alert dialog, ButtonType create) {
         Optional<ButtonType> result = dialog.showAndWait();
         try {
@@ -144,6 +161,9 @@ public class GetAJokeController {
         }
     }
 
+    /*
+     * Mit dieser Funktion wird ein Impressum geladen
+     * */
     @FXML
     public void showImpressum() {
         Text text = new Text();
