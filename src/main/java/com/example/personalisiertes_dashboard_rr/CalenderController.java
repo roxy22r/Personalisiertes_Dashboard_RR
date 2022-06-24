@@ -72,6 +72,10 @@ public class CalenderController implements Initializable {
             new ProjectOwner("Tom", "Holland", LocalDateTime.of(2022, Month.AUGUST, 9, 17, 45), LocalDateTime.of(2022, Month.AUGUST, 9, 20, 45))
     ));
 
+    /*
+    Die Personen Auswahlbox und der Kalender wie auch
+     die  Meetings werden als erstes geladen
+    */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setConboBox();
@@ -81,6 +85,9 @@ public class CalenderController implements Initializable {
 
     }
 
+    /*
+     * Hier werden die Kalender angezeigt von allen Personen.
+     * */
     private void setConboBox() {
         List<String> list = new ArrayList<String>();
         list.add("PO");
@@ -91,6 +98,9 @@ public class CalenderController implements Initializable {
         peopleDirectory.setItems(obList);
     }
 
+    /*
+     *Mit dieser Funktion werden Alle Meetings angezeigt von der Ausgewählten Person
+     *  */
     @FXML
     private void showVisableAppointmentsOfPerson() {
         showBothCalender = false;
@@ -104,6 +114,9 @@ public class CalenderController implements Initializable {
         reloadCalenderSlide();
     }
 
+    /*
+     * Hier werden alle Meetings geholt vom Product Owner
+     * */
     private List<Appointment> getAllPoAppointments() {
         List<Appointment> appointments = new ArrayList<>();
         for (ProjectOwner po : projectOwners) {
@@ -112,6 +125,9 @@ public class CalenderController implements Initializable {
         return appointments;
     }
 
+    /*
+     * Mit dieser Funktion wird die Joke View geladen
+     * */
     @FXML
     public void onClickGetAJokeView(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/com/example/personalisiertes_dashboard_rr/getAJoke-view.fxml"));
@@ -123,6 +139,9 @@ public class CalenderController implements Initializable {
         stage.show();
     }
 
+    /*
+     * Mit dieser Funktion kann man ein neues Meeting hinzufügen
+     * */
     @FXML
     public void addAppointment() throws IOException {
         GridPane grid = new GridPane();
@@ -170,6 +189,10 @@ public class CalenderController implements Initializable {
         reloadCalenderSlide();
     }
 
+    /*
+     * Hier wird die Beneutzer Eingabe Validiert
+     * die Eingabe darf nicht leer sein und muss ein Button vom Typ create sein
+     * */
     private void validateUserInput(Alert dialog, ButtonType create, TextField textTitel, DatePicker datePicker, TextField textBeginn, TextField textEnd, Label noteLable, TextArea textArea) {
         Optional<ButtonType> result = dialog.showAndWait();
         try {
@@ -190,6 +213,9 @@ public class CalenderController implements Initializable {
         return textArea.getText().isEmpty();
     }
 
+    /*
+     * Diese Funktion läde die Stock View
+     * */
     @FXML
     public void onClickGetStockView(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/com/example/personalisiertes_dashboard_rr/stock-view.fxml"));
@@ -201,6 +227,9 @@ public class CalenderController implements Initializable {
         stage.show();
     }
 
+    /*
+     * Mit dierser Funktion wird die Total anzahl Tage geholt vom angezeige
+     * */
     public long getTotalDaysMonth() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
@@ -215,6 +244,9 @@ public class CalenderController implements Initializable {
 
     }
 
+    /*
+     * Hier wird die Aktuelle Calenderside in der View aktualisiert
+     * */
     public void reloadCalenderSlide() {
         try {
             int day = 1;
@@ -245,7 +277,9 @@ public class CalenderController implements Initializable {
         }
     }
 
-
+    /*
+     * Hier wird der vorherige Monat von der View gelanden
+     * */
     @FXML
     private void previousMonth() {
         try {
@@ -261,6 +295,9 @@ public class CalenderController implements Initializable {
         }
     }
 
+    /*
+     * Hier wird der nächste Monat von der View gelanden
+     * */
     @FXML
     private void nextMonth() {
         try {
@@ -295,6 +332,9 @@ public class CalenderController implements Initializable {
         }
     }
 
+    /*
+     * Hier mit wird der andere Personentyp ausgewählt
+     * */
     private Person getOtherCalenderPersonType() {
         if (person.getPersonKind() == personAppointmentCalenderKind.Owner) {
             return projectOwner;
@@ -303,6 +343,9 @@ public class CalenderController implements Initializable {
         }
     }
 
+    /*
+     * Hier wird ein Meeting auf ein Datum gesetzt in der View
+     * */
     private void setAppointmentToDate(Person person, GridPane calenderGrid, int colum, int row, Bounds cell, Month month, int day, Appointment appointment, String style) {
 
         if (appointment.getDate().getMonth() == month && appointment.getDate().getDayOfMonth() == day) {
@@ -316,7 +359,9 @@ public class CalenderController implements Initializable {
         }
     }
 
-
+    /*
+     * Hier werden die Meeting vom Tag geladen
+     * */
     private void loadAppointmentOftheDay(LocalDateTime date, Appointment appointmentOftheDay) {
         for (Appointment appointment : appointments) {
             {
@@ -404,6 +449,9 @@ public class CalenderController implements Initializable {
         reloadCalenderSlide();
     }
 
+    /*
+     * Mit dieser Funktion kann ein Meeting bearbeitet werden
+     * */
     private void editAppointment(ActionEvent event, Alert dialog, ButtonType ok, TextField textTitel, DatePicker datePicker, TextField textBeginn, TextField textEnd, TextArea textArea) {
         textTitel.setDisable(false);
         datePicker.setDisable(false);
@@ -415,6 +463,9 @@ public class CalenderController implements Initializable {
 
     }
 
+    /*
+     * Hier wird der button von der View entfernt
+     * */
     public void removeButton(Button button) {
         root.getChildrenUnmodifiable().remove(button);
     }
@@ -431,6 +482,9 @@ public class CalenderController implements Initializable {
         }
     }
 
+    /*
+     * Hier wird ein Button entfernt beim Calender von einer bestimmten reihe und spalte
+     * */
     public void removeButtonByRowColumnIndex(final int row, final int column, GridPane gridPane) {
         ObservableList<Node> childrens = gridPane.getChildren();
         for (Node node : childrens) {
@@ -442,6 +496,9 @@ public class CalenderController implements Initializable {
         }
     }
 
+    /*
+     * Mit dieser Funktion wird ein Impressum geladen
+     * */
     @FXML
     public void showImpressum() {
         Text text = new Text();
