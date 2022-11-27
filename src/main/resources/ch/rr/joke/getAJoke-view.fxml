@@ -1,32 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.*?>
-<AnchorPane minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.rr.StockMarket.StockController">
-    <ImageView fitHeight="417.0" fitWidth="624.0" layoutX="419.0" layoutY="236.0" pickOnBounds="true"
-               preserveRatio="true" AnchorPane.bottomAnchor="147.0" AnchorPane.leftAnchor="419.0"
-               AnchorPane.rightAnchor="270.5809326171875" AnchorPane.topAnchor="236.0">
-        <image>
-            <Image url="@../../../../../img/stock%20.png"/>
-        </image>
-        <viewport>
-            <Rectangle2D/>
-        </viewport>
-    </ImageView>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" minHeight="800.0" minWidth="1280.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
+            fx:controller="ch.rr.joke.GetAJokeController">
 
 
-    <Pane layoutX="165.0" layoutY="-3.0" prefHeight="115.0" prefWidth="1116.0" style="-fx-background-color: #BCC3FF;" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="-1.0">
+    <Pane layoutX="165.0" layoutY="-3.0" prefHeight="115.0" prefWidth="1116.0" style="-fx-background-color: #BCC3FF;"
+          AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="-1.0">
         <children>
 
 
-            <Label contentDisplay="CENTER" layoutX="280.0" layoutY="14.0" prefHeight="116.0" prefWidth="221.0" text="Stock" textFill="WHITE">
+            <Label contentDisplay="CENTER" layoutX="280.0" layoutY="14.0" prefHeight="116.0" prefWidth="520.0"
+                   text="Get A Joke" textFill="WHITE">
                 <font>
-                    <Font name="Comic Sans MS" size="72.0" />
+                    <Font name="Comic Sans MS" size="72.0"/>
                 </font>
             </Label>
         </children>
@@ -61,12 +55,12 @@
                             <Font name="Comic Sans MS" size="13.0" />
                         </font>
                     </Button>
-                    <Button layoutX="10.0" layoutY="245.0" minHeight="80.0" minWidth="175.0" mnemonicParsing="false" onAction="#onClickGetAJokeView" prefHeight="80.0" prefWidth="222.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Get A Joke" textFill="WHITE" GridPane.columnSpan="4" GridPane.rowIndex="5">
+                    <Button layoutX="10.0" layoutY="245.0" minHeight="80.0" minWidth="175.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="222.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Get A Joke" textFill="WHITE" GridPane.columnSpan="4" GridPane.rowIndex="5">
                         <font>
                             <Font name="Comic Sans MS" size="13.0" />
                         </font>
                     </Button>
-                    <Button layoutX="10.0" layoutY="42.0" mnemonicParsing="false" onAction="#onClickGetCalenderView" prefHeight="73.0" prefWidth="221.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Stock" textFill="WHITE" GridPane.columnSpan="4" GridPane.rowIndex="6">
+                    <Button layoutX="10.0" layoutY="42.0" mnemonicParsing="false" onAction="#onClickGetStockView" prefHeight="73.0" prefWidth="221.0" style="-fx-background-color: #BCC3FF; -fx-border-color: #16FFE1; -fx-border-width: 1; -fx-border-radius: 5;" text="Stock" textFill="WHITE" GridPane.columnSpan="4" GridPane.rowIndex="6">
                         <font>
                             <Font name="Comic Sans MS" size="13.0" />
                         </font>
@@ -87,20 +81,45 @@
                             </Label>
                         </children>
                     </Pane>
-                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#showImpressum" prefHeight="29.0"
-                            prefWidth="226.0" style="-fx-background-color: #BCC3FF;" text="Impressum" textFill="#29c2dd"
-                            GridPane.columnSpan="4" GridPane.rowIndex="10">
-                        <font>
-                            <Font name="Comic Sans MS Bold" size="13.0"/>
-                        </font>
-                    </Button>
+
                 </children>
             </GridPane>
-        </children></Pane>
-                  <Label layoutX="419.0" layoutY="681.0" prefHeight="0.0" prefWidth="552.0" style="-fx-font-size: 20;" text="Logitech is a Harwear Company" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="309.0" />
-                  <TextField layoutX="424.0" layoutY="161.0" prefHeight="25.0" prefWidth="490.0" AnchorPane.leftAnchor="424.0" AnchorPane.rightAnchor="366.0" />
-   <Button layoutX="927.0" layoutY="161.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="search" AnchorPane.rightAnchor="276.0" />
+        </children>
+    </Pane>
 
+
+    <Button layoutX="458.0" layoutY="357.0" minHeight="100.0" minWidth="590.0" mnemonicParsing="false"
+            onAction="#onClickShowAJoke" prefHeight="100.0" prefWidth="623.0"
+            style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 10;"
+            text="SHOW A JOKE" AnchorPane.bottomAnchor="343.0" AnchorPane.leftAnchor="458.0"
+            AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="357.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <font>
+            <Font name="Comic Sans MS" size="48.0"/>
+        </font>
+    </Button>
+    <Pane layoutX="995.0" layoutY="129.0" prefHeight="90.0" prefWidth="77.0" AnchorPane.rightAnchor="208.0"
+          AnchorPane.topAnchor="129.0">
+        <children>
+            <Button mnemonicParsing="false" onAction="#onClickAddAJoke" onMouseClicked="#onClickAddAJoke"
+                    prefHeight="78.0" prefWidth="77.0"
+                    style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 100;">
+                <font>
+                    <Font size="36.0"/>
+                </font>
+            </Button>
+            <Line endX="38.0" layoutX="39.0" layoutY="39.0" startX="-39.0" strokeLineCap="ROUND" strokeWidth="5.0"/>
+            <Line endX="16.5" endY="-102.0" layoutX="22.0" layoutY="102.0" startX="16.5" startY="-24.0"
+                  strokeLineCap="ROUND" strokeWidth="5.0"/>
+        </children>
+    </Pane>
+    <Button alignment="CENTER" layoutX="2.0" layoutY="765.0" mnemonicParsing="false" onAction="#showImpressum"
+            prefHeight="29.0" prefWidth="225.0" style="-fx-background-color: #BCC3FF;" text="Impressum"
+            textFill="#29c2dd" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="2.0">
+        <font>
+            <Font name="Comic Sans MS Bold" size="13.0"/>
+        </font>
+    </Button>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0"/>
 
 
 </AnchorPane>

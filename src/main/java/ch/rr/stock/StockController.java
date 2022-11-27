@@ -1,4 +1,4 @@
-package ch.rr.StockMarket;
+package ch.rr.stock;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,7 +31,7 @@ public class StockController {
      * */
     @FXML
     public void onClickGetCalenderView(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/com/example/personalisiertes_dashboard_rr/calender-view.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/ch/rr/calender/calender-view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setWidth(scene.getWidth());
@@ -45,7 +45,7 @@ public class StockController {
      * */
     @FXML
     public void onClickGetAJokeView(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/com/example/personalisiertes_dashboard_rr/getAJoke-view.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/ch/rr/joke/getAJoke-view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setWidth(scene.getWidth());

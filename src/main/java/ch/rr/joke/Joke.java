@@ -1,4 +1,4 @@
-package ch.rr.Joke;
+package ch.rr.joke;
 
 import java.util.ArrayList;
 import java.util.List;
