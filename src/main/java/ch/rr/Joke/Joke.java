@@ -1,4 +1,4 @@
-package com.example.personalisiertes_dashboard_rr;
+package ch.rr.Joke;
 
 import java.util.ArrayList;
 import java.util.List;

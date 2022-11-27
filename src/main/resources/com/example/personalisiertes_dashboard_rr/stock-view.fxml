@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.*?>
-<AnchorPane minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.personalisiertes_dashboard_rr.StockController">
+<AnchorPane minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.rr.StockMarket.StockController">
     <ImageView fitHeight="417.0" fitWidth="624.0" layoutX="419.0" layoutY="236.0" pickOnBounds="true"
                preserveRatio="true" AnchorPane.bottomAnchor="147.0" AnchorPane.leftAnchor="419.0"
                AnchorPane.rightAnchor="270.5809326171875" AnchorPane.topAnchor="236.0">

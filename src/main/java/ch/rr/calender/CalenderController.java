@@ -1,4 +1,4 @@
-package com.example.personalisiertes_dashboard_rr;
+package ch.rr.calender;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

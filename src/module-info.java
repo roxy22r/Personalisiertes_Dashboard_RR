@@ -7,5 +7,10 @@ module com.example.personalisiertes_dashboard_rr {
     requires org.kordamp.bootstrapfx.core;
 
     opens com.example.personalisiertes_dashboard_rr to javafx.fxml;
-    exports com.example.personalisiertes_dashboard_rr;
+    exports ch.rr.calender;
+    opens ch.rr.calender to javafx.fxml;
+    exports ch.rr.Joke;
+    opens ch.rr.Joke to javafx.fxml;
+    exports ch.rr.StockMarket;
+    opens ch.rr.StockMarket to javafx.fxml;
 }

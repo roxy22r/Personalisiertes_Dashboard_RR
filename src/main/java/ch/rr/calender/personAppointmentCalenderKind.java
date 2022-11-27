@@ -1,4 +1,4 @@
-package com.example.personalisiertes_dashboard_rr;
+package ch.rr.calender;
 
 public enum personAppointmentCalenderKind {
     PO, Owner, All

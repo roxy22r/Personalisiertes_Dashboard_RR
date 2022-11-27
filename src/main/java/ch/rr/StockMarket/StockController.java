@@ -1,4 +1,4 @@
-package com.example.personalisiertes_dashboard_rr;
+package ch.rr.StockMarket;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

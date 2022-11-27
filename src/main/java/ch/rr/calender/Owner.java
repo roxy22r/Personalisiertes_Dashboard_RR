@@ -1,4 +1,4 @@
-package com.example.personalisiertes_dashboard_rr;
+package ch.rr.calender;
 
 public class Owner extends Person {
     public Owner(String firstName, String secondName) {
