@@ -1,5 +1,6 @@
 package ch.rr.joke;
 
+import ch.rr.joke.model.Joke;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

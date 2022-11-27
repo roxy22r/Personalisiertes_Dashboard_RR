@@ -1,5 +1,8 @@
 package ch.rr.calender;
 
+import ch.rr.calender.model.Appointment;
+import ch.rr.calender.model.Person;
+
 import java.time.LocalDateTime;
 
 public class ProjectOwner extends Person {

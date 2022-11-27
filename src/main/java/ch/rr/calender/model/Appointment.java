@@ -1,4 +1,4 @@
-package ch.rr.calender;
+package ch.rr.calender.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -1,4 +1,6 @@
-package ch.rr.calender;
+package ch.rr.calender.model;
+
+import ch.rr.calender.personAppointmentCalenderKind;
 
 public class Owner extends Person {
     public Owner(String firstName, String secondName) {

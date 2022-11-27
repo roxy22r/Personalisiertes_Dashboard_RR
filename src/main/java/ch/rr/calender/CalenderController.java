@@ -1,5 +1,8 @@
 package ch.rr.calender;
 
+import ch.rr.calender.model.Appointment;
+import ch.rr.calender.model.Owner;
+import ch.rr.calender.model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

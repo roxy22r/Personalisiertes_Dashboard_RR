@@ -11,5 +11,8 @@ module ch.rr {
     exports ch.rr.joke;
     opens ch.rr.joke to javafx.fxml;
     exports ch.rr.stock;
+
     opens ch.rr.stock to javafx.fxml;
+    exports ch.rr.calender.model;
+    opens ch.rr.calender.model to javafx.fxml;
 }

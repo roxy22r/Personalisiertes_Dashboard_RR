@@ -1,4 +1,6 @@
-package ch.rr.calender;
+package ch.rr.calender.model;
+
+import ch.rr.calender.personAppointmentCalenderKind;
 
 import java.util.ArrayList;
 import java.util.List;
