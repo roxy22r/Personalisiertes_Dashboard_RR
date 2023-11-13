@@ -1,5 +1,6 @@
 package ch.rr.joke;
 
+import ch.rr.impressum.Impressum;
 import ch.rr.joke.model.Joke;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,7 +30,8 @@ public class GetAJokeController {
     private Scene scene;
     @FXML
     private Parent root;
-    private static final String IMPRESSUM = "Company: RaXit\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
+
+    public static String VIEW_PATH = "/ch/rr/joke/getAJoke-view.fxml";
     private List<Joke> jokes = new ArrayList<>(Arrays.asList(
             new Joke("A woman gets on a bus with her baby. The bus driver says: 'Ugh, that’s the ugliest baby I’ve ever seen!' The woman walks to the rear of the bus and sits down, fuming. She says to a man next to her: “The driver just insulted me!' The man says: 'You go up there and tell him off. Go on, I’ll hold your monkey for you.'"),
             new Joke("I said to the Gym instructor 'Can you teach me to do the splits?'He said, “How flexible are you?' I said, 'I can’t make Tuesdays.'"),
@@ -167,25 +169,6 @@ public class GetAJokeController {
      * */
     @FXML
     public void showImpressum() {
-        Text text = new Text();
-        text.setStyle("-fx-font: 30 arial;");
-        text.setStyle("-fx-font-weight:bold;");
-        text.setFont(Font.font("Comic Sans MS"));
-        text.setTextAlignment(TextAlignment.CENTER);
-        Alert dialog = new Alert(Alert.AlertType.NONE);
-        dialog.setTitle("Impressum");
-        dialog.setContentText(IMPRESSUM);
-        dialog.setResizable(false);
-        dialog.initStyle(StageStyle.UNDECORATED);
-        dialog.getDialogPane().setMinSize(500, 230);
-        dialog.getDialogPane().setPrefSize(500, 230);
-        dialog.getDialogPane().setStyle("-fx-background-color: #97d1a4;");
-        dialog.getDialogPane().getScene().setFill(Color.WHITE);
-        ButtonType OK = new ButtonType("OK");
-        dialog.getButtonTypes().setAll(OK);
-        Optional<ButtonType> result = dialog.showAndWait();
-        if (result.get() == OK) {
-            System.out.println("Approve Button is clicked");
-        }
+        Impressum.showImpressum();
     }
 }

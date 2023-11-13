@@ -3,6 +3,8 @@ package ch.rr.calender;
 import ch.rr.calender.model.Appointment;
 import ch.rr.calender.model.Owner;
 import ch.rr.calender.model.Person;
+import ch.rr.impressum.Impressum;
+import ch.rr.stock.StockController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +20,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -30,6 +31,7 @@ import java.time.LocalTime;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class CalenderController implements Initializable {
@@ -42,7 +44,6 @@ public class CalenderController implements Initializable {
     private Parent root;
     @FXML
     private GridPane calenderGrid;
-    private static final String IMPRESSUM = "Company: RaXi\nResponsible person: Raksana Ravichandran\nLocation: Maurer 4877,34 Hummligenstrasse\nemail: RaXit@gmail.com";
     @FXML
     private ComboBox peopleDirectory;
     String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -55,6 +56,10 @@ public class CalenderController implements Initializable {
     private Owner owner = new Owner("Emma", "Whatson");
     private Person person = owner;
     private ProjectOwner projectOwner = new ProjectOwner("", "");
+    private   List<String> visalbeCalenderTypes = List.of("PO","Owner","All");
+
+    public static String VIEW_PATH = "/ch/rr/calender/calender-view.fxml";
+
 
 
     private List<Appointment> appointments = new ArrayList<>(Arrays.asList(
@@ -81,7 +86,7 @@ public class CalenderController implements Initializable {
     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setConboBox();
+        setComboBox();
         reloadCalenderSlide();
         projectOwner.addAllAppointments(getAllPoAppointments());
         owner.addAllAppointments(appointments);
@@ -91,12 +96,9 @@ public class CalenderController implements Initializable {
     /*
      * Hier werden die Kalender angezeigt von allen Personen.
      * */
-    private void setConboBox() {
-        List<String> list = new ArrayList<String>();
-        list.add("PO");
-        list.add("Owner");
-        list.add("All");
-        ObservableList obList = FXCollections.observableList(list);
+    private void setComboBox() {
+
+        ObservableList obList = FXCollections.observableList(visalbeCalenderTypes);
         peopleDirectory.getSelectionModel().getSelectedIndex();
         peopleDirectory.setItems(obList);
     }
@@ -107,9 +109,9 @@ public class CalenderController implements Initializable {
     @FXML
     private void showVisableAppointmentsOfPerson() {
         showBothCalender = false;
-        if (personAppointmentCalenderKind.valueOf(peopleDirectory.getValue().toString()) == personAppointmentCalenderKind.PO) {
+        if (isOnlyPoAppointmentsVisalbe()) {
             person = projectOwner;
-        } else if (personAppointmentCalenderKind.valueOf(peopleDirectory.getValue().toString()) == personAppointmentCalenderKind.All) {
+        } else if (areAllPeopleApointmentsVisable()) {
             showBothCalender = true;
         } else {
             person = owner;
@@ -117,15 +119,22 @@ public class CalenderController implements Initializable {
         reloadCalenderSlide();
     }
 
+    private boolean areAllPeopleApointmentsVisable() {
+        return personAppointmentCalenderKind.valueOf(peopleDirectory.getValue().toString()) == personAppointmentCalenderKind.All;
+    }
+
+    private boolean isOnlyPoAppointmentsVisalbe() {
+        return personAppointmentCalenderKind.valueOf(peopleDirectory.getValue().toString()) == personAppointmentCalenderKind.PO;
+    }
+
     /*
      * Hier werden alle Meetings geholt vom Product Owner
      * */
     private List<Appointment> getAllPoAppointments() {
-        List<Appointment> appointments = new ArrayList<>();
-        for (ProjectOwner po : projectOwners) {
-            appointments.addAll(po.getAppointments());
-        }
-        return appointments;
+       return projectOwners.stream()//
+        .flatMap(po->po.getAppointments().stream())//
+        .toList();
+
     }
 
     /*
@@ -221,7 +230,7 @@ public class CalenderController implements Initializable {
      * */
     @FXML
     public void onClickGetStockView(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/ch/rr/stock/stock-view.fxml"));
+        root = FXMLLoader.load(getClass().getResource(StockController.VIEW_PATH));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setWidth(scene.getWidth());
@@ -504,25 +513,7 @@ public class CalenderController implements Initializable {
      * */
     @FXML
     public void showImpressum() {
-        Text text = new Text();
-        text.setStyle("-fx-font: 30 arial;");
-        text.setStyle("-fx-font-weight:bold;");
-        text.setTextAlignment(TextAlignment.CENTER);
-        Alert dialog = new Alert(Alert.AlertType.NONE);
-        dialog.setTitle("Impressum");
-        dialog.setContentText(IMPRESSUM);
-        dialog.setResizable(false);
-        dialog.initStyle(StageStyle.UNDECORATED);
-        dialog.getDialogPane().setMinSize(500, 230);
-        dialog.getDialogPane().setPrefSize(500, 230);
-        dialog.getDialogPane().setStyle("-fx-background-color: #97d1a4;");
-        dialog.getDialogPane().getScene().setFill(Color.WHITE);
-        ButtonType OK = new ButtonType("OK");
-        dialog.getButtonTypes().setAll(OK);
-        Optional<ButtonType> result = dialog.showAndWait();
-        if (result.get() == OK) {
-            System.out.println("Approve Button is clicked");
-        }
+        Impressum.showImpressum();
     }
 
 }
